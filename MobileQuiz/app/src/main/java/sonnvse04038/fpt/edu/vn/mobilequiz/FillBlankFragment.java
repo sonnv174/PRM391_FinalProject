@@ -32,8 +32,8 @@ public class FillBlankFragment extends Fragment {
         // Inflate the layout for this fragment
        // return inflater.inflate(R.layout.fragment_fill_blank, container, false);
         View v = inflater.inflate(R.layout.fragment_fill_blank, container, false);
-        TextView tv = (TextView) v.findViewById(R.id.text);
-        tv.setText(this.getTag() + " Content");
+//        TextView tv = (TextView) v.findViewById(R.id.text);
+//        tv.setText(this.getTag() + " Content");
         return v;
     }
 

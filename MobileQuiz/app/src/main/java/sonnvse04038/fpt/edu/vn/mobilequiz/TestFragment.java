@@ -3,14 +3,19 @@ package sonnvse04038.fpt.edu.vn.mobilequiz;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TabHost;
 import android.widget.Toast;
 
@@ -18,10 +23,12 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TestFragment extends Fragment implements View.OnClickListener{
+public class TestFragment extends Fragment implements View.OnClickListener {
 
-    Button btnFinishNow;
+    Button btnFinishNow, btnPrev, btnNext;
+    ProgressBar prbStatus;
     private FragmentTabHost mTabHost;
+    int percent = 100/6;
 
     public TestFragment() {
         // Required empty public constructor
@@ -42,6 +49,14 @@ public class TestFragment extends Fragment implements View.OnClickListener{
 
         btnFinishNow = (Button) view.findViewById(R.id.btnFinishNow);
         btnFinishNow.setOnClickListener(this);
+        btnPrev = (Button) view.findViewById(R.id.btnPrev);
+        btnPrev.setOnClickListener(this);
+        btnNext = (Button) view.findViewById(R.id.btnNext);
+        btnNext.setOnClickListener(this);
+
+        prbStatus = (ProgressBar) view.findViewById(R.id.prbStatus);
+        prbStatus.setMax(100);
+        prbStatus.getProgressDrawable().setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
 
         mTabHost = (FragmentTabHost) getActivity().findViewById(android.R.id.tabhost);
         mTabHost.setup(getContext(), getActivity().getSupportFragmentManager(), android.R.id.tabcontent);
@@ -64,6 +79,7 @@ public class TestFragment extends Fragment implements View.OnClickListener{
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab6").setIndicator("Q 6", null),
                 MultipleChoiceFragment.class, null);
+        mTabHost.setCurrentTab(0);
 
     }
 
@@ -80,6 +96,19 @@ public class TestFragment extends Fragment implements View.OnClickListener{
                 fragmentTransaction.commit();
                 break;
 
+            case R.id.btnNext:
+                percent += 100/6;
+                percent = percent >= 100 ? 100 : percent;
+                prbStatus.setProgress(percent);
+                mTabHost.setCurrentTab(percent*6/100);
+                break;
+
+            case R.id.btnPrev:
+                percent -= 100/6;
+                percent = percent <= 0 ? 0 : percent;
+                prbStatus.setProgress(percent);
+                mTabHost.setCurrentTab(percent*6/100);
+                break;
         }
     }
 }

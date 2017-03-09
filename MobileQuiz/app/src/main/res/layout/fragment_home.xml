@@ -38,6 +38,7 @@
         app:fabSize="normal"
         app:rippleColor="@android:color/background_light"
         app:srcCompat="@drawable/ic_plus" />
+<<<<<<< HEAD
 
 
     <Button
@@ -64,4 +65,6 @@
         <!--tools:layout_editor_absoluteY="5dp"-->
         <!--android:layout_above="@+id/btnDemoTest" />-->
 
+=======
+>>>>>>> 99158031297bdce934be877de1104815df8c2475
 </RelativeLayout>
