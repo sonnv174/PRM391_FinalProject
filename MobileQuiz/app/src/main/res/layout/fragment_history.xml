@@ -1,15 +1,42 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context="sonnvse04038.fpt.edu.vn.mobilequiz.HistoryFlagment">
+    android:layout_weight="1"
+
+    tools:context="sonnvse04038.fpt.edu.vn.mobilequiz.HistoryFlagment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"/>
+
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="History flagment"
-        android:id="@+id/textView2" />
+        android:scrollbars="vertical">
 
-</RelativeLayout>
+        <TableLayout
+            android:id="@+id/tableLay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="0.5">
+
+
+
+
+
+        </TableLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

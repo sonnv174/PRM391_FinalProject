@@ -69,16 +69,16 @@ public class TestFragment extends Fragment implements View.OnClickListener {
                 FillBlankFragment.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab3").setIndicator("Q 3", null),
-                FillBlankFragment.class, null);
+                MultipleChoiceFragment.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab4").setIndicator("Q 4", null),
                 MultipleChoiceFragment.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab5").setIndicator("Q 5", null),
-                MultipleChoiceFragment.class, null);
+                MatchingFragment.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab6").setIndicator("Q 6", null),
-                MultipleChoiceFragment.class, null);
+                MatchingFragment.class, null);
         mTabHost.setCurrentTab(0);
 
     }
