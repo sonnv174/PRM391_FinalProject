@@ -53,7 +53,6 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-
 //                Toast.makeText(getContext(), "" + position, Toast.LENGTH_SHORT).show();
                 Intent testIntent = new Intent(getContext(), TestActivity.class);
                 testIntent.putExtra("testID", position);
