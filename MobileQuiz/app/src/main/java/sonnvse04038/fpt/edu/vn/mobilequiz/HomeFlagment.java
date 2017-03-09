@@ -21,7 +21,6 @@ import android.widget.Toast;
  */
 public class HomeFlagment extends Fragment implements View.OnClickListener {
     FloatingActionButton fab;
-    Button btnDemoTest;
 
 
     public HomeFlagment() {
@@ -43,11 +42,9 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
 
         //get component by id here
         fab = (FloatingActionButton) view.findViewById(R.id.fabAdd);
-        btnDemoTest = (Button) view.findViewById(R.id.btnDemoTest);
 
         //set listener here
         fab.setOnClickListener(this);
-        btnDemoTest.setOnClickListener(this);
 
         GridView gridview = (GridView) view.findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(getContext()));
@@ -56,8 +53,10 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-//                Toast.makeText(HelloGridView.this, "" + position,
-//                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "" + position, Toast.LENGTH_SHORT).show();
+                Intent testIntent = new Intent(getContext(), TestActivity.class);
+                testIntent.putExtra("testID", position);
+                startActivity(testIntent);
             }
         });
     }
@@ -68,12 +67,6 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
         switch (GUI_id) {
             case R.id.fabAdd:
                 Toast.makeText(getContext(), "Add button is clicked!", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.btnDemoTest:
-                Intent testIntent = new Intent(getContext(), TestActivity.class);
-                testIntent.putExtra("testID", 333);
-                startActivity(testIntent);
                 break;
 
         }
