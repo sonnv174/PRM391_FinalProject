@@ -1,14 +1,71 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="sonnvse04038.fpt.edu.vn.mobilequiz.MultipleChoiceFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Multiple" />
 
-</FrameLayout>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="104dp"
+        android:layout_marginRight="104dp"
+        android:layout_marginTop="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/radioGroup2">
+
+        <RadioButton
+            android:id="@+id/radA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Answer A" />
+
+        <RadioButton
+            android:id="@+id/radB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Answer B" />
+
+        <RadioButton
+            android:id="@+id/radC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Answer C" />
+
+        <RadioButton
+            android:id="@+id/radD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Answer D" />
+
+        <RadioButton
+            android:id="@+id/radE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Answer E" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Question in here"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/radioGroup2"
+        android:layout_toStartOf="@+id/radioGroup2"
+        android:layout_marginRight="45dp"
+        android:layout_marginEnd="45dp" />
+
+</RelativeLayout>
+
