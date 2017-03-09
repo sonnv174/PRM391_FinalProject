@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 public class TestActivity extends AppCompatActivity {
 
+    StartTestFragment fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +18,11 @@ public class TestActivity extends AppCompatActivity {
         int testID = getIntent().getIntExtra("testID", 0);
         Toast.makeText(getApplicationContext(), "" + testID, Toast.LENGTH_SHORT).show();
 
+        //set title with the name of test
+        setTitle("Demo test");
+
         //Set the fragment initially
-        StartTestFragment fragment = new StartTestFragment();
+        fragment = new StartTestFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.test_fragment_container, fragment);
         fragmentTransaction.commit();

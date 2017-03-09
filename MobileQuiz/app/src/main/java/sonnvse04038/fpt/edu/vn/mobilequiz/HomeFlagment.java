@@ -10,9 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.Toast;
 
 
@@ -48,18 +46,6 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
         //set listener here
         fab.setOnClickListener(this);
         btnDemoTest.setOnClickListener(this);
-
-        GridView gridview = (GridView) view.findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(getContext()));
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-//                Toast.makeText(HelloGridView.this, "" + position,
-//                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

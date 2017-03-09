@@ -48,13 +48,18 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
         switch (GUI_id) {
             case R.id.btnStart:
                 Toast.makeText(getContext(), "Start!", Toast.LENGTH_SHORT).show();
+                //Set the fragment initially
+                TestFragment fragment = new TestFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.test_fragment_container, fragment);
+                fragmentTransaction.commit();
                 break;
 
             case R.id.btnCancel:
                 //return result intent is cancel to go to home screen
                 //else result intent is finish, it will be gone to Resuklt screen
                 Toast.makeText(getContext(), "Cancel!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getContext(), HomeActivity.class));
+                getActivity().finish();
                 break;
 
         }
