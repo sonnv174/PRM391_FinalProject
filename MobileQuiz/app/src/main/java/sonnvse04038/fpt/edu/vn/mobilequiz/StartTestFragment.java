@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -19,11 +20,16 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
 
 
     Button btnStart, btnCancel;
+    TextView tvTestContent;
 
     public StartTestFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +44,9 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
         btnStart = (Button) view.findViewById(R.id.btnStart);
         btnCancel = (Button) view.findViewById(R.id.btnCancel);
 
+        tvTestContent = (TextView) view.findViewById(R.id.tvTestContent);
+        tvTestContent.setText("Now we test the Demo test " + getActivity().getIntent().getIntExtra("testID", 0));
+
         btnStart.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
     }
@@ -47,7 +56,7 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
         int GUI_id = view.getId();
         switch (GUI_id) {
             case R.id.btnStart:
-                Toast.makeText(getContext(), "Start!", Toast.LENGTH_SHORT).show();
+   //             Toast.makeText(getContext(), "Start!", Toast.LENGTH_SHORT).show();
                 //Set the fragment initially
                 TestFragment fragment = new TestFragment();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -58,7 +67,7 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
             case R.id.btnCancel:
                 //return result intent is cancel to go to home screen
                 //else result intent is finish, it will be gone to Resuklt screen
-                Toast.makeText(getContext(), "Cancel!", Toast.LENGTH_SHORT).show();
+           //     Toast.makeText(getContext(), "Cancel!", Toast.LENGTH_SHORT).show();
                 getActivity().finish();
                 break;
 
