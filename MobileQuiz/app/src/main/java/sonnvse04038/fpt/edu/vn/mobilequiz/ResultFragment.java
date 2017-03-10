@@ -51,6 +51,7 @@ public class ResultFragment extends android.support.v4.app.Fragment implements a
             //Auto create row
             trDe =  new android.widget.TableRow(getContext());
             trDe.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+            trDe.setBackgroundResource(sonnvse04038.fpt.edu.vn.mobilequiz.R.drawable.raw_boder);
             //Creating textview to add to the row
             Question = new android.widget.TextView(getContext());
             Question.setText(number[i]);
