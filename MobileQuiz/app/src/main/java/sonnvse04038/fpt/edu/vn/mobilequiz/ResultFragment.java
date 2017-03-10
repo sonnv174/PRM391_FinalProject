@@ -1,231 +1,232 @@
 package sonnvse04038.fpt.edu.vn.mobilequiz;
 
-import android.support.v4.app.Fragment;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * A simple {@link android.support.v4.app.Fragment} subclass.
+ * Created by admin on 3/9/2017.
  */
-public class ResultFragment extends Fragment implements View.OnClickListener {
-    Button btnDone;
-    String number[] = {"1", "2", "3", "4", "5"};
-    String part[] = {"Choices", "Missing Word", "Matching"};
-    String simpleCon[] = {"1+1=", "Can share info by 5 ways in Android?", "Android has       version.", "Google is       company", "1A"};
-    String status[] = {"True", "False"};
-    TextView Question, Part, SimpleContent, Status;
-    TableLayout tbRe, tbDe;
-    TableRow tr;
-    TextView tvUser, tvTestName, tvTimeStart, tvDuration, tvTimeCom, tvMark, tvStatus;
 
-    public ResultFragment() {
-        // Required empty public constructor
-    }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+public class ResultFragment extends android.support.v4.app.Fragment implements android.view.View.OnClickListener{
+
+
+    android.widget.Button btnDone;
+    String number[]= {"1","2","3","4","5"};
+    String part[]= {"Choices","Missing Word","Missing Word","Missing Word","Matching"};
+    String simpleCon[]= {"1+1=","Can share info by 5 ways in Android?","Android has       version.","Google is       company","1A"};
+    String status[]= {"True","False","True","True","True"};
+    android.widget.TextView Question,Part, SimpleContent, Status;
+    android.widget.TableLayout tbRe,tbDe;
+    android.widget.TableRow tr,trDe;
+    android.widget.TextView tvUser,tvTestName,tvTimeStart,tvDuration,tvTimeCom,tvMark,tvStatus;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public android.view.View onCreateView(android.view.LayoutInflater inflater, android.view.ViewGroup container,
+                                          android.os.Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_result, container, false);
+        return inflater.inflate(sonnvse04038.fpt.edu.vn.mobilequiz.R.layout.fragment_result, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(android.view.View view, @android.support.annotation.Nullable android.os.Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tbRe = (TableLayout) view.findViewById(R.id.tbResult);
-        //tvUser = new TextView(getActivity().getApplicationContext());0
-        tbDe = (TableLayout) view.findViewById(R.id.tbDetail);
-        btnDone = (Button) view.findViewById(R.id.btnDone);
+        tbRe = (android.widget.TableLayout)view.findViewById(sonnvse04038.fpt.edu.vn.mobilequiz.R.id.tbResult);
+        //tvUser = new android.widget.TextView(getContext());0
+        tbDe = (android.widget.TableLayout) view.findViewById(sonnvse04038.fpt.edu.vn.mobilequiz.R.id.tbResult);
+        btnDone = (android.widget.Button)view.findViewById(sonnvse04038.fpt.edu.vn.mobilequiz.R.id.btnDone);
         btnDone.setOnClickListener(this);
-//        addHeader();
-//        //addData();
-//        showResult();
-//
-//        addDetailHearder();
-//        showDetailTests();
+        addHeader();
+        //addData();
+        showResult();
+
+        addDetailHearder();
+        showDetailTests();
     }
 
-//    private void showDetailTests() {
-//        for (int i = 0; i < number.length; i++) {
-//            //Auto create row
-//            tr = new TableRow(getActivity().getApplicationContext());
-//            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//            //Creating textview to add to the row
-//            Question = new TextView(getActivity().getApplicationContext());
-//            Question.setText(number[i]);
-//            Question.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//            tr.addView(Question);
+    private void showDetailTests() {
+        for (int i= 0; i<number.length;i++)
+        {
+            //Auto create row
+            trDe =  new android.widget.TableRow(getContext());
+            trDe.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+            //Creating textview to add to the row
+            Question = new android.widget.TextView(getContext());
+            Question.setText(number[i]);
+            trDe.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+            trDe.addView(Question);
 //
-//            Part = new TextView(getActivity().getApplicationContext());
-//            Part.setText(part[i]);
-//            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//            tr.addView(Part);
+            Part = new android.widget.TextView(getContext());
+            Part.setText(part[i]);
+            trDe.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+            trDe.addView(Part);
+
+            SimpleContent = new android.widget.TextView(getContext());
+            SimpleContent.setText(simpleCon[i]);
+            trDe.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+            trDe.addView(SimpleContent);
 //
-//            Status = new TextView(getActivity().getApplicationContext());
-//            Status.setText(status[i]);
-//            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//            tr.addView(Status);
 //
-//            //Add Tablerow to TableLayout
-//            tbDe.addView(tr, TableLayout.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
-//        }
-//    }
-//
-//    private void addDetailHearder() {
-//        tr = new TableRow(getActivity().getApplicationContext());
-//        tr.setLayoutParams(new TableRow.LayoutParams(
-//                TableRow.LayoutParams.MATCH_PARENT,
-//                TableRow.LayoutParams.WRAP_CONTENT));
-//
-//        Question = new TextView(getActivity().getApplicationContext());
-//        Question.setText("Question");
-//        Question.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        Question.setPadding(5, 5, 5, 0);
-//        tr.addView(Question);  // Adding textView to tablerow.
-//
-//        /** Creating another textview **/
-//        Part = new TextView(getActivity().getApplicationContext());
-//        Part.setText("Part");
-//        Part.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        Part.setPadding(5, 5, 5, 0);
-//        tr.addView(Part); // Adding textView to tablerow.
-//
-//        SimpleContent = new TextView(getActivity().getApplicationContext());
-//        SimpleContent.setText("Simple Content");
-//        SimpleContent.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        SimpleContent.setPadding(5, 5, 5, 0);
-//        tr.addView(SimpleContent);
-//
-//        // Add the TableRow to the TableLayout
-//        tbDe.addView(tr, new TableLayout.LayoutParams(
-//                TableRow.LayoutParams.MATCH_PARENT,
-//                TableRow.LayoutParams.WRAP_CONTENT));
-//    }
-//
-//    /**
-//     * This function add the headers to the table
-//     **/
-//    public void addHeader() {
-//        tr = new TableRow(getActivity().getApplicationContext());
-//        tr.setLayoutParams(new TableRow.LayoutParams(
-//                TableRow.LayoutParams.MATCH_PARENT,
-//                TableRow.LayoutParams.WRAP_CONTENT));
-//
-//        tvUser = new TextView(getActivity().getApplicationContext());
-//        tvUser.setText("User");
-//        tvUser.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvUser.setPadding(5, 5, 5, 0);
-//        tr.addView(tvUser);  // Adding textView to tablerow.
-//
-//        /** Creating another textview **/
-//        tvTestName = new TextView(getActivity().getApplicationContext());
-//        tvTestName.setText("Test Name");
-//        tvTestName.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvTestName.setPadding(5, 5, 5, 0);
-//        tr.addView(tvTestName); // Adding textView to tablerow.
-//
-//        tvTimeStart = new TextView(getActivity().getApplicationContext());
-//        tvTimeStart.setText("Time Start");
-//        tvTimeStart.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvTimeStart.setPadding(5, 5, 5, 0);
-//        tr.addView(tvTimeStart);
-//
-//        tvDuration = new TextView(getActivity().getApplicationContext());
-//        tvDuration.setText("Duration");
-//        tvDuration.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvDuration.setPadding(5, 5, 5, 0);
-//        tr.addView(tvDuration);
-//
-//        tvTimeCom = new TextView(getActivity().getApplicationContext());
-//        tvTimeCom.setText("Time Completed");
-//        tvTimeCom.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvTimeCom.setPadding(5, 5, 5, 0);
-//        tr.addView(tvTimeCom);
-//
-//        tvMark = new TextView(getActivity().getApplicationContext());
-//        tvMark.setText("Mark");
-//        tvMark.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvMark.setPadding(5, 5, 5, 0);
-//        tr.addView(tvMark);
-//
-//        tvStatus = new TextView(getActivity().getApplicationContext());
-//        tvStatus.setText("Status");
-//        tvStatus.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvStatus.setPadding(5, 5, 5, 0);
-//        tr.addView(tvStatus);
-//        // Add the TableRow to the TableLayout
-//        tbRe.addView(tr, new TableLayout.LayoutParams(
-//                TableRow.LayoutParams.MATCH_PARENT,
-//                TableRow.LayoutParams.WRAP_CONTENT));
-//    }
-//
-//    public void showResult() {
-//        tr = new TableRow(getActivity().getApplicationContext());
-//        tr.setLayoutParams(new TableRow.LayoutParams(
-//                TableRow.LayoutParams.MATCH_PARENT,
-//                TableRow.LayoutParams.WRAP_CONTENT));
-//
-//        tvUser = new TextView(getActivity().getApplicationContext());
-//        tvUser.setText("Nam Kha");
-//        tvUser.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvUser.setPadding(5, 5, 5, 0);
-//        tr.addView(tvUser);  // Adding textView to tablerow.
-//
-//        /** Creating another textview **/
-//        tvTestName = new TextView(getActivity().getApplicationContext());
-//        tvTestName.setText("Math");
-//        tvTestName.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvTestName.setPadding(5, 5, 5, 0);
-//        tr.addView(tvTestName); // Adding textView to tablerow.
-//
-//        tvTimeStart = new TextView(getActivity().getApplicationContext());
-//        tvTimeStart.setText("11:00 23/02/2011");
-//        tvTimeStart.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvTimeStart.setPadding(5, 5, 5, 0);
-//        tr.addView(tvTimeStart);
-//
-//        tvDuration = new TextView(getActivity().getApplicationContext());
-//        tvDuration.setText("45 minutes");
-//        tvDuration.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvDuration.setPadding(5, 5, 5, 0);
-//        tr.addView(tvDuration);
-//
-//        tvTimeCom = new TextView(getActivity().getApplicationContext());
-//        tvTimeCom.setText("30 minutes");
-//        tvTimeCom.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvTimeCom.setPadding(5, 5, 5, 0);
-//        tr.addView(tvTimeCom);
-//
-//        tvMark = new TextView(getActivity().getApplicationContext());
-//        tvMark.setText("7");
-//        tvMark.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvMark.setPadding(5, 5, 5, 0);
-//        tr.addView(tvMark);
-//
-//        tvStatus = new TextView(getActivity().getApplicationContext());
-//        tvStatus.setText("Passed");
-//        tvStatus.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//        tvStatus.setPadding(5, 5, 5, 0);
-//        tr.addView(tvStatus);
-//        // Add the TableRow to the TableLayout
-//        tbRe.addView(tr, new TableLayout.LayoutParams(
-//                TableRow.LayoutParams.MATCH_PARENT,
-//                TableRow.LayoutParams.WRAP_CONTENT));
-//    }
+            Status = new android.widget.TextView(getContext());
+            Status.setText(status[i]);
+            trDe.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+            trDe.addView(Status);
+
+            //Add Tablerow to TableLayout
+            tbDe.addView(trDe, android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);
+
+        }
+    }
+
+    private void addDetailHearder() {
+        tr = new android.widget.TableRow(getContext());
+        tr.setLayoutParams(new android.widget.TableRow.LayoutParams(
+                android.widget.TableRow.LayoutParams.MATCH_PARENT,
+                android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+
+        Question = new android.widget.TextView(getContext());
+        Question.setText("Question");
+        Question.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        //Question.setPadding(5, 5, 5, 0);
+        tr.addView(Question);  // Adding textView to tablerow.
+
+        /** Creating another textview **/
+        Part = new android.widget.TextView(getContext());
+        Part.setText("Part");
+        Part.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        //Part.setPadding(5, 5, 5, 0);
+        tr.addView(Part); // Adding textView to tablerow.
+
+        SimpleContent = new android.widget.TextView(getContext());
+        SimpleContent.setText("Simple Content");
+        SimpleContent.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        //SimpleContent.setPadding(5, 5, 5, 0);
+        tr.addView(SimpleContent);
+
+        Status = new android.widget.TextView(getContext());
+        Status.setText("Status");
+        Status.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+        //Status.setPadding(5, 5, 5, 0);
+        tr.addView(Status);
+
+
+        // Add the TableRow to the TableLayout
+        tbDe.addView(tr, new android.widget.TableLayout.LayoutParams(
+                android.widget.TableRow.LayoutParams.MATCH_PARENT,
+                android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+    }
+
+    /** This function add the headers to the table **/
+    public void addHeader()
+    {
+        tr = new android.widget.TableRow(getContext());
+        tr.setLayoutParams(new android.widget.TableRow.LayoutParams(
+                android.widget.TableRow.LayoutParams.MATCH_PARENT,
+                android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+
+        tvUser = new android.widget.TextView(getContext());
+        tvUser.setText("User");
+        tvUser.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvUser.setPadding(5, 5, 5, 0);
+        tr.addView(tvUser);  // Adding textView to tablerow.
+
+        /** Creating another textview **/
+        tvTestName = new android.widget.TextView(getContext());
+        tvTestName.setText("Test Name");
+        tvTestName.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvTestName.setPadding(5, 5, 5, 0);
+        tr.addView(tvTestName); // Adding textView to tablerow.
+
+        tvTimeStart = new android.widget.TextView(getContext());
+        tvTimeStart.setText("Time Start");
+        tvTimeStart.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvTimeStart.setPadding(5, 5, 5, 0);
+        tr.addView(tvTimeStart);
+
+        tvDuration = new android.widget.TextView(getContext());
+        tvDuration.setText("Duration");
+        tvDuration.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvDuration.setPadding(5, 5, 5, 0);
+        tr.addView(tvDuration);
+
+        tvTimeCom = new android.widget.TextView(getContext());
+        tvTimeCom.setText("Time Completed");
+        tvTimeCom.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvTimeCom.setPadding(5, 5, 5, 0);
+        tr.addView(tvTimeCom);
+
+        tvMark = new android.widget.TextView(getContext());
+        tvMark.setText("Mark");
+        tvMark.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvMark.setPadding(5, 5, 5, 0);
+        tr.addView(tvMark);
+
+        tvStatus = new android.widget.TextView(getContext());
+        tvStatus.setText("Status");
+        tvStatus.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvStatus.setPadding(5, 5, 5, 0);
+        tr.addView(tvStatus);
+        // Add the TableRow to the TableLayout
+        tbRe.addView(tr, new android.widget.TableLayout.LayoutParams(
+                android.widget.TableRow.LayoutParams.MATCH_PARENT,
+                android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+    }
+
+    public void showResult()
+    {
+        tr = new android.widget.TableRow(getContext());
+        tr.setLayoutParams(new android.widget.TableRow.LayoutParams(
+                android.widget.TableRow.LayoutParams.MATCH_PARENT,
+                android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+
+        tvUser = new android.widget.TextView(getContext());
+        tvUser.setText("Nam Kha");
+        tvUser.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvUser.setPadding(5, 5, 5, 0);
+        tr.addView(tvUser);  // Adding textView to tablerow.
+
+        /** Creating another textview **/
+        tvTestName = new android.widget.TextView(getContext());
+        tvTestName.setText("Math");
+        tvTestName.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvTestName.setPadding(5, 5, 5, 0);
+        tr.addView(tvTestName); // Adding textView to tablerow.
+
+        tvTimeStart = new android.widget.TextView(getContext());
+        tvTimeStart.setText("11:00 23/02/2011");
+        tvTimeStart.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvTimeStart.setPadding(5, 5, 5, 0);
+        tr.addView(tvTimeStart);
+
+        tvDuration = new android.widget.TextView(getContext());
+        tvDuration.setText("45 minutes");
+        tvDuration.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvDuration.setPadding(5, 5, 5, 0);
+        tr.addView(tvDuration);
+
+        tvTimeCom = new android.widget.TextView(getContext());
+        tvTimeCom.setText("30 minutes");
+        tvTimeCom.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvTimeCom.setPadding(5, 5, 5, 0);
+        tr.addView(tvTimeCom);
+
+        tvMark = new android.widget.TextView(getContext());
+        tvMark.setText("7");
+        tvMark.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvMark.setPadding(5, 5, 5, 0);
+        tr.addView(tvMark);
+
+        tvStatus = new android.widget.TextView(getContext());
+        tvStatus.setText("Passed");
+        tvStatus.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+        tvStatus.setPadding(5, 5, 5, 0);
+        tr.addView(tvStatus);
+        // Add the TableRow to the TableLayout
+        tbRe.addView(tr, new android.widget.TableLayout.LayoutParams(
+                android.widget.TableRow.LayoutParams.MATCH_PARENT,
+                android.widget.TableRow.LayoutParams.WRAP_CONTENT));
+    }
 
 
     @Override

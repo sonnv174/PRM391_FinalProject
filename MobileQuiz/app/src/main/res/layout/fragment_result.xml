@@ -9,19 +9,22 @@
     <TableLayout
         android:id="@+id/tbResult"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_centerHorizontal="true">
+        android:layout_height="0dp"
+        android:layout_weight="19.73"
+        android:stretchColumns="0.5">
 
     </TableLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="324dp">
+        android:layout_height="154dp">
 
         <TableLayout
             android:id="@+id/tbDetail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:stretchColumns="0.8">
 
         </TableLayout>
     </ScrollView>
@@ -30,6 +33,6 @@
         android:id="@+id/btnDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Done" />
+        android:text="Done"/>
 
 </LinearLayout>
