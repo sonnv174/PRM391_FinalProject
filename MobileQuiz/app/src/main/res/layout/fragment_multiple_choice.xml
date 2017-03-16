@@ -7,15 +7,11 @@
     <!-- TODO: Update blank fragment layout -->
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="104dp"
-        android:layout_marginRight="104dp"
-        android:layout_marginTop="58dp"
-        android:layout_alignParentTop="true"
+        android:id="@+id/radioGroup2"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/radioGroup2">
+        android:layout_alignParentEnd="true">
 
         <RadioButton
             android:id="@+id/radA"
@@ -23,14 +19,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="true"
-            android:text="Answer A" />
+            android:text="If you missed out the tickets, we are giving away two tickets to " />
 
         <RadioButton
             android:id="@+id/radB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Answer B" />
+            android:text="Did you know that SUMMERFEST 2017 is officially sold out?  If you missed out the tickets, we are giving away two tickets to #summerfest17. All you have to do is tell us below in 25 words or less what summer in Sydney means to you. If you are shy, please message us. We will be announcing the winners tomorrow midday. " />
 
         <RadioButton
             android:id="@+id/radC"
@@ -43,7 +39,6 @@
             android:id="@+id/radD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Answer D" />
 
         <RadioButton
@@ -54,18 +49,32 @@
             android:text="Answer E" />
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_toLeftOf="@+id/radioGroup2"
-        android:layout_toStartOf="@+id/radioGroup2"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="[Thông báo] 1. Chiều nay test game ạ 1h00 phòng 303-305L 2. Tối nay là vòng test IQ/EQ, nhân lực cần có: 6 giám thị và 2 security từ 7h đến 9r, địa điểm sẽ được thông báo sau nên ai đi đươc hãy confirm vị trí ạ. Note: nhiều ng hơn cũng oke nhé ạ còn nếu k đủ người em sẽ tự xếp vì là vòng chơi rồi nên ai k đủ được do em xếp phải có lí do chính đáng (việc gia đình nêu rõ, deadline hôm nay, đi học có lịch đã xếp trước 1 tuần)" />
+    <ScrollView
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Did you know that SUMMERFEST 2017 is officially sold out?  If you missed out the tickets, we are giving away two tickets to #summerfest17. All you have to do is tell us below in 25 words or less what summer in Sydney means to you. If you are shy, please message us. We will be announcing the winners tomorrow midday.Did you know that SUMMERFEST 2017 is officially sold out?  If you missed out the tickets, we are giving away two tickets to #summerfest17. All you have to do is tell us below in 25 words or less what summer in Sydney means to you. If you are shy, please message us. We will be announcing the winners tomorrow midday. Did you know that SUMMERFEST 2017 is officially sold out?  If you missed out the tickets, we are giving away two tickets to #summerfest17. All you have to do is tell us below in 25 words or less what summer in Sydney means to you. If you are shy, please message us. We will be announcing the winners tomorrow midday.  "
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
 
