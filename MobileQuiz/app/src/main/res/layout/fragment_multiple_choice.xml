@@ -58,14 +58,14 @@
         android:id="@+id/editText3"
         android:layout_width="300dp"
         android:layout_height="250dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Question in here"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
         android:layout_toLeftOf="@+id/radioGroup2"
         android:layout_toStartOf="@+id/radioGroup2"
-        android:layout_marginRight="45dp"
-        android:layout_marginEnd="45dp" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="[Thông báo] 1. Chiều nay test game ạ 1h00 phòng 303-305L 2. Tối nay là vòng test IQ/EQ, nhân lực cần có: 6 giám thị và 2 security từ 7h đến 9r, địa điểm sẽ được thông báo sau nên ai đi đươc hãy confirm vị trí ạ. Note: nhiều ng hơn cũng oke nhé ạ còn nếu k đủ người em sẽ tự xếp vì là vòng chơi rồi nên ai k đủ được do em xếp phải có lí do chính đáng (việc gia đình nêu rõ, deadline hôm nay, đi học có lịch đã xếp trước 1 tuần)" />
 
 </RelativeLayout>
 
