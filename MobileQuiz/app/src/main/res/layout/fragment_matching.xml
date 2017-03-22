@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tool="http://schemas.android.com/apk/res-auto"
-              android:layout_width="wrap_content"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:weightSum="1">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp" >
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="621dp"
-        android:layout_alignParentEnd="true"
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drag and drop statement in A with statement in B to make right statement"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+<<<<<<< HEAD
+        android:layout_alignParentEnd="true"/>
+=======
         android:layout_alignTop="@+id/editText2"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp">
@@ -189,91 +203,120 @@
                 android:layout_toEndOf="@+id/editText5"
                 android:layout_toRightOf="@+id/editText5"
                 android:text="C"/>
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/editText8"
-                android:layout_marginLeft="71dp"
-                android:layout_marginStart="71dp"
-                android:layout_toEndOf="@+id/editText7"
-                android:layout_toRightOf="@+id/editText7"
-                android:text="D"/>
-
-        </RelativeLayout>
-    </ScrollView>
+>>>>>>> cd41433d33c25ef1cfd734139ed81fb2fe25a36a
 
     <TextView
-        android:id="@+id/matchingIntro"
-        android:layout_width="1071dp"
+        android:id="@+id/Acol"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Matching question with right answer and fill it to behind in form 1A - 2B etc"
-        android:textSize="30sp"/>
+        android:layout_marginTop="16dp"
+        android:text="A column"
+        android:layout_below="@+id/tvInfo"
+        android:layout_alignLeft="@+id/option_1"
+        android:layout_alignStart="@+id/option_1"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/Bcol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Acol"
+        android:layout_centerHorizontal="true"
+        android:text="B column"/>
 
+    <TextView
+        android:id="@+id/option_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Acol"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/raw_boder"
+        android:text="1"/>
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="43dp"
-            android:text="Your Answer"/>
+    <TextView
+        android:id="@+id/option_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/option_1"
+        android:layout_alignRight="@+id/option_1"
+        android:layout_below="@+id/option_1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/raw_boder"
+        android:text="2"/>
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView4"
-            android:layout_marginLeft="60dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="59dp"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="Answer"/>
+    <TextView
+        android:id="@+id/option_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/option_2"
+        android:layout_alignStart="@+id/option_2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/option_2"
+        android:background="@drawable/raw_boder"
+        android:text="3"/>
 
-        <EditText
-            android:id="@+id/editText9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText"
-            android:layout_alignStart="@+id/editText"
-            android:layout_below="@+id/editText"
-            android:layout_marginTop="58dp"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="Answer"/>
+    <TextView
+        android:id="@+id/option_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/option_3"
+        android:layout_alignRight="@+id/option_3"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/option_3"
+        android:background="@drawable/raw_boder"
+        android:text="4"/>
 
-        <EditText
-            android:id="@+id/editText10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editText"
-            android:layout_alignBottom="@+id/editText"
-            android:layout_alignLeft="@+id/textView4"
-            android:layout_alignStart="@+id/textView4"
-            android:layout_marginLeft="37dp"
-            android:layout_marginStart="37dp"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="Answer"/>
+    <TextView
+        android:id="@+id/choice_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/option_1"
+        android:layout_alignBottom="@+id/option_1"
+        android:layout_alignLeft="@+id/Bcol"
+        android:layout_alignStart="@+id/Bcol"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/raw_boder"
+        android:text="5"/>
 
-        <EditText
-            android:id="@+id/editText11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editText9"
-            android:layout_alignBottom="@+id/editText9"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="Answer"
-            android:layout_alignLeft="@+id/editText10"
-            android:layout_alignStart="@+id/editText10"/>
-    </RelativeLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/choice_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/choice_1"
+        android:layout_alignRight="@+id/choice_1"
+        android:background="@drawable/raw_boder"
+        android:layout_below="@id/choice_1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="6"/>
+
+    <TextView
+        android:id="@+id/choice_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/choice_2"
+        android:layout_alignLeft="@+id/choice_2"
+        android:layout_alignStart="@+id/choice_2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/raw_boder"
+        android:text="7"/>
+
+    <TextView
+        android:id="@+id/choice_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/option_4"
+        android:layout_alignEnd="@+id/choice_3"
+        android:layout_alignRight="@+id/choice_3"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/raw_boder"
+        android:text="8"/>
+
+</RelativeLayout>
