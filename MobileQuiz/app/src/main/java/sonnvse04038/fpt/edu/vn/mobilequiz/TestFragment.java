@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TabHost;
 import android.widget.Toast;
+
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.FillBlank;
 
 
 /**
@@ -33,7 +36,6 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     public TestFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,12 +63,18 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         mTabHost = (FragmentTabHost) getActivity().findViewById(android.R.id.tabhost);
         mTabHost.setup(getContext(), getActivity().getSupportFragmentManager(), android.R.id.tabcontent);
 
+        FillBlank fb1 = new FillBlank(1, 1, "X Question", "X1", "X2", "X3", "X4", "X5");
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("fQuestion", fb1);
+
+        FillBlank fb2 = new FillBlank(2, 2, "X Question 2", "X12", "X22", "X222", "X24", "X52");
+        Bundle bundle2=new Bundle();
+        bundle2.putSerializable("fQuestion", fb2);
+
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab1").setIndicator("Q 1", null),
-                FillBlankFragment.class, null);
+                mTabHost.newTabSpec("tab1").setIndicator("Q 1", null), FillBlankFragment.class, bundle);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab2").setIndicator("Q 2", null),
-                FillBlankFragment.class, null);
+                mTabHost.newTabSpec("tab2").setIndicator("Q 2", null), FillBlankFragment.class, bundle2);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab3").setIndicator("Q 3", null),
                 MultipleChoiceFragment.class, null);

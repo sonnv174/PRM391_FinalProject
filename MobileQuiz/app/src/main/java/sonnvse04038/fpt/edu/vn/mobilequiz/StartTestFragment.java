@@ -59,6 +59,7 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
    //             Toast.makeText(getContext(), "Start!", Toast.LENGTH_SHORT).show();
                 //Set the fragment initially
                 TestFragment fragment = new TestFragment();
+
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.test_fragment_container, fragment);
                 fragmentTransaction.commit();
