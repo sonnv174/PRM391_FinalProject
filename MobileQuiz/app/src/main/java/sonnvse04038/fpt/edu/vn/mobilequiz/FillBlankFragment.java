@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.FillBlank;
 
 
 /**
@@ -15,9 +18,14 @@ import android.widget.TextView;
  */
 public class FillBlankFragment extends Fragment {
 
-
+    EditText edtAnswer1, edtAnswer2, edtAnswer3, edtAnswer4, edtAnswer5;
+    FillBlank fb;
     public FillBlankFragment() {
         // Required empty public constructor
+    }
+
+    public FillBlankFragment(FillBlank fb) {
+        this.fb = fb;
     }
 
     @Override
@@ -34,6 +42,11 @@ public class FillBlankFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_fill_blank, container, false);
 //        TextView tv = (TextView) v.findViewById(R.id.text);
 //        tv.setText(this.getTag() + " Content");
+        edtAnswer1 = (EditText) v.findViewById(R.id.edtAnswer1);
+        edtAnswer2 = (EditText) v.findViewById(R.id.edtAnswer2);
+        edtAnswer3 = (EditText) v.findViewById(R.id.edtAnswer3);
+        edtAnswer4 = (EditText) v.findViewById(R.id.edtAnswer4);
+        edtAnswer5 = (EditText) v.findViewById(R.id.edtAnswer5);
         return v;
     }
 
