@@ -48,16 +48,15 @@ public class FillBlankFragment extends Fragment {
         // Inflate the layout for this fragment
         // return inflater.inflate(R.layout.fragment_fill_blank, container, false);
         View v = inflater.inflate(R.layout.fragment_fill_blank, container, false);
-//        TextView tv = (TextView) v.findViewById(R.id.text);
-//        tv.setText(this.getTag(i) + " Content");
-//        edtAnswer1 = (EditText) v.findViewById(R.id.edtAnswer1);
-//        edtAnswer2 = (EditText) v.findViewById(R.id.edtAnswer2);
-//        edtAnswer3 = (EditText) v.findViewById(R.id.edtAnswer3);
-//        edtAnswer4 = (EditText) v.findViewById(R.id.edtAnswer4);
-//        edtAnswer5 = (EditText) v.findViewById(R.id.edtAnswer5);
+        edtAnswer1 = (EditText) v.findViewById(R.id.edtAnswer1);
+        edtAnswer2 = (EditText) v.findViewById(R.id.edtAnswer2);
+        edtAnswer3 = (EditText) v.findViewById(R.id.edtAnswer3);
+        edtAnswer4 = (EditText) v.findViewById(R.id.edtAnswer4);
+        edtAnswer5 = (EditText) v.findViewById(R.id.edtAnswer5);
 
         tvQuestion = (TextView) v.findViewById(R.id.tvFQuestion);
 
+        //get object was sent from TestFragment
         Bundle bd = getArguments();
         fb = (FillBlank) bd.getSerializable("fQuestion");
         tvQuestion.setText(fb.getfQuestion());

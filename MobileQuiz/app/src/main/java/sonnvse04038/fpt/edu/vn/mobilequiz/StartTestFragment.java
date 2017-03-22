@@ -21,6 +21,7 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
 
     Button btnStart, btnCancel;
     TextView tvTestContent;
+    int testID;
 
     public StartTestFragment() {
         // Required empty public constructor
@@ -45,7 +46,8 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
         btnCancel = (Button) view.findViewById(R.id.btnCancel);
 
         tvTestContent = (TextView) view.findViewById(R.id.tvTestContent);
-        tvTestContent.setText("Now we test the Demo test " + getActivity().getIntent().getIntExtra("testID", 0));
+        testID = getActivity().getIntent().getIntExtra("testID", 0);
+        tvTestContent.setText("Now we test the Demo test " + testID);
 
         btnStart.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
@@ -59,6 +61,9 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
    //             Toast.makeText(getContext(), "Start!", Toast.LENGTH_SHORT).show();
                 //Set the fragment initially
                 TestFragment fragment = new TestFragment();
+                Bundle bundleTestID = new Bundle();
+                bundleTestID.putInt("testID", testID);
+                fragment.setArguments(bundleTestID);
 
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.test_fragment_container, fragment);

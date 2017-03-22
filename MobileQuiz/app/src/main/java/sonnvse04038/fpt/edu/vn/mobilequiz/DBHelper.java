@@ -10,6 +10,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.FillBlank;
+
 /**
  * Created by sonnv174 on 2/13/2017.
  */
@@ -185,25 +187,30 @@ public class DBHelper extends SQLiteOpenHelper {
 //        }
 //    }
 
-//    public ArrayList<Contacts> getAllContacts() {
-//        ArrayList<Contacts> list = new ArrayList<>();
-//        Cursor rs = null;
-//        String sql = "select id, name, email, phone from contacts";
-//        rs = db.rawQuery(sql, null);
-//        Log.v("Number of selected", "Number: " + rs.getCount());
-//        rs.moveToFirst();
-//        while (rs.isAfterLast() == false) {
-//            Contacts c = new Contacts();
-//            c.setId(rs.getInt(rs.getColumnIndex(CONTACTS_COLUMN_ID)));
-//            c.setName(rs.getString(rs.getColumnIndex(CONTACTS_COLUMN_NAME)));
-//            c.setPhone(rs.getString(rs.getColumnIndex(CONTACTS_COLUMN_PHONE)));
-//            c.setEmail(rs.getString(rs.getColumnIndex(CONTACTS_COLUMN_EMAIL)));
-//            list.add(c);
-//            rs.moveToNext();
-//        }
-//        return list;
-//    }
-//
+    public ArrayList<FillBlank> getAllFillBlankByTestID(int testID) {
+        ArrayList<FillBlank> list = new ArrayList<>();
+        Cursor rs = null;
+        String sql = "select fID, tID, fQuestion, fStatus, fAnswer1, fAnswer2, fAnswer3, fAnswer4, fAnswer5 from filling";
+        rs = db.rawQuery(sql, null);
+        Log.v("Number of selected", "Number: " + rs.getCount());
+        rs.moveToFirst();
+        while (rs.isAfterLast() == false) {
+            FillBlank f = new FillBlank();
+            f.setfID(rs.getInt(rs.getColumnIndex(FILLING_COLUMN_ID)));
+            f.settID(rs.getInt(rs.getColumnIndex(TEST_COLUMN_ID)));
+            f.setfStatus(rs.getInt(rs.getColumnIndex(FILLING_COLUMN_STATUS)));
+            f.setfQuestion(rs.getString(rs.getColumnIndex(FILLING_COLUMN_QUESTION)));
+            f.setfAnswer1(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_1)));
+            f.setfAnswer2(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_2)));
+            f.setfAnswer3(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_3)));
+            f.setfAnswer4(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_4)));
+            f.setfAnswer5(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_5)));
+            list.add(f);
+            rs.moveToNext();
+        }
+        return list;
+    }
+
 //    public boolean updateARecord(Contacts c) {
 //        boolean result = false; //if we can update successfully the passed contect => return true
 //        int count = 0;

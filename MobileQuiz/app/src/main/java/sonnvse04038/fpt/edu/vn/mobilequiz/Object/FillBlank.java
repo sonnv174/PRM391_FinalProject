@@ -8,12 +8,13 @@ import java.io.Serializable;
 
 public class FillBlank implements Serializable{
 
-    private int tID, fID;
+    private int tID, fID, fStatus;
     private String fQuestion, fAnswer1, fAnswer2, fAnswer3, fAnswer4, fAnswer5;
 
-    public FillBlank(int tID, int fID, String fQuestion, String fAnswer1, String fAnswer2, String fAnswer3, String fAnswer4, String fAnswer5) {
+    public FillBlank(int tID, int fID, int fStatus, String fQuestion, String fAnswer1, String fAnswer2, String fAnswer3, String fAnswer4, String fAnswer5) {
         this.tID = tID;
         this.fID = fID;
+        this.fStatus = fStatus;
         this.fQuestion = fQuestion;
         this.fAnswer1 = fAnswer1;
         this.fAnswer2 = fAnswer2;
@@ -23,6 +24,14 @@ public class FillBlank implements Serializable{
     }
 
     public FillBlank() {
+    }
+
+    public int getfStatus() {
+        return fStatus;
+    }
+
+    public void setfStatus(int fStatus) {
+        this.fStatus = fStatus;
     }
 
     public int gettID() {

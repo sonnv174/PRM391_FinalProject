@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         myDB = new DBHelper(getApplicationContext(), DBHelper.DB_NAME, null, DBHelper.DB_VERSION);
-        Toast.makeText(getApplicationContext(), DBHelper.DB_NAME + " is establish and contacts table is created!", Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(getApplicationContext(), DBHelper.DB_NAME + " is establish and contacts table is created!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
