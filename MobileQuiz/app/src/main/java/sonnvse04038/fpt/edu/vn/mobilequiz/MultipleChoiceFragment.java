@@ -24,7 +24,7 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
     String righAnswer = "Question A";
     String answer = "";
     boolean result = false;
-    MultipleChoice mc = new MultipleChoice();
+    MultipleChoice mc = new MultipleChoice(null,null,null,null,null,null, 1);
 
     public MultipleChoiceFragment() {
         // Required empty public constructor
@@ -55,13 +55,11 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
         radD.setOnClickListener(this);
         radE.setOnClickListener(this);
 
-        mc.settID(1);
         mc.setQuestion("Question");
         mc.setAnswer1("Answer A");
         mc.setAnswer2("Answer B");
         mc.setAnswer3("Answer C");
         mc.setAnswer4("Answer D");
-        mc.setAnswer5("Answer E");
         mc.setRighAnswer(righAnswer);
 
         tvQuestion.setText(mc.getQuestion());
@@ -69,7 +67,6 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
         radB.setText(mc.getAnswer2());
         radC.setText(mc.getAnswer3());
         radD.setText(mc.getAnswer4());
-        radE.setText(mc.getAnswer5());
     }
 
     @Override
@@ -91,10 +88,6 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
             case R.id.radD:
                 Toast.makeText(getContext(), radD.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
                 answer = radD.getText().toString();
-                break;
-            case R.id.radE:
-                Toast.makeText(getContext(), radE.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
-                answer = radE.getText().toString();
                 break;
         }
         if(answer == mc.getRighAnswer()){

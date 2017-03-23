@@ -5,18 +5,21 @@ package sonnvse04038.fpt.edu.vn.mobilequiz.Object;
  */
 
 public class MultipleChoice {
-    private String question, answer1, answer2, answer3, answer4, answer5, righAnswer;
+    private String question, answer1, answer2, answer3, answer4, righAnswer;
     private int tID;
 
     public MultipleChoice() {
-        this.tID = tID;
+
+    }
+
+    public MultipleChoice(String question, String answer1, String answer2, String answer3, String answer4, String righAnswer, int tID) {
         this.question = question;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
         this.answer4 = answer4;
-        this.answer5 = answer5;
         this.righAnswer = righAnswer;
+        this.tID = tID;
     }
 
     public int gettID() {
@@ -65,14 +68,6 @@ public class MultipleChoice {
 
     public void setAnswer4(String answer4) {
         this.answer4 = answer4;
-    }
-
-    public String getAnswer5() {
-        return answer5;
-    }
-
-    public void setAnswer5(String answer5) {
-        this.answer5 = answer5;
     }
 
     public String getRighAnswer() {
