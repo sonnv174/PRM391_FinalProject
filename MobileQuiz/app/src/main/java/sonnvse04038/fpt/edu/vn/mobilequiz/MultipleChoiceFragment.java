@@ -19,12 +19,12 @@ import sonnvse04038.fpt.edu.vn.mobilequiz.Object.MultipleChoice;
  */
 public class MultipleChoiceFragment extends Fragment implements View.OnClickListener{
 
-    RadioButton radA, radB, radC, radD, radE;
+    RadioButton radA, radB, radC, radD;
     TextView tvQuestion;
     String righAnswer = "Question A";
     String answer = "";
     boolean result = false;
-    MultipleChoice mc = new MultipleChoice(null,null,null,null,null,null, 1);
+    MultipleChoice mc = new MultipleChoice(0, 0, null, null, null, null, null, null, null);
 
     public MultipleChoiceFragment() {
         // Required empty public constructor
@@ -45,7 +45,6 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
         radB = (RadioButton) view.findViewById(R.id.radB);
         radC = (RadioButton) view.findViewById(R.id.radC);
         radD = (RadioButton) view.findViewById(R.id.radD);
-        radE = (RadioButton) view.findViewById(R.id.radE);
 
         tvQuestion = (TextView) view.findViewById(R.id.tvMulQuestion);
 
@@ -53,20 +52,19 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
         radB.setOnClickListener(this);
         radC.setOnClickListener(this);
         radD.setOnClickListener(this);
-        radE.setOnClickListener(this);
 
-        mc.setQuestion("Question");
-        mc.setAnswer1("Answer A");
-        mc.setAnswer2("Answer B");
-        mc.setAnswer3("Answer C");
-        mc.setAnswer4("Answer D");
-        mc.setRighAnswer(righAnswer);
+        mc.setMulQuestion("Question");
+        mc.setMulAnswer1("Answer A");
+        mc.setMulAnswer2("Answer B");
+        mc.setMulAnswer3("Answer C");
+        mc.setMulAnswer4("Answer D");
+        mc.setMulRighAnswer(righAnswer);
 
-        tvQuestion.setText(mc.getQuestion());
-        radA.setText(mc.getAnswer1());
-        radB.setText(mc.getAnswer2());
-        radC.setText(mc.getAnswer3());
-        radD.setText(mc.getAnswer4());
+        tvQuestion.setText(mc.getMulQuestion());
+        radA.setText(mc.getMulAnswer1());
+        radB.setText(mc.getMulAnswer2());
+        radC.setText(mc.getMulAnswer3());
+        radD.setText(mc.getMulAnswer4());
     }
 
     @Override
@@ -90,7 +88,7 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
                 answer = radD.getText().toString();
                 break;
         }
-        if(answer == mc.getRighAnswer()){
+        if(answer == mc.getMulRighAnswer()){
             result = true;
         }
     }

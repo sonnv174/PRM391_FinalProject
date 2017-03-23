@@ -5,21 +5,43 @@ package sonnvse04038.fpt.edu.vn.mobilequiz.Object;
  */
 
 public class MultipleChoice {
-    private String question, answer1, answer2, answer3, answer4, righAnswer;
-    private int tID;
+
+    private int mulID, tID;
+    private String mulQuestion,mulStatus,mulRighAnswer, mulAnswer1, mulAnswer2, mulAnswer3, mulAnswer4;
 
     public MultipleChoice() {
 
     }
 
-    public MultipleChoice(String question, String answer1, String answer2, String answer3, String answer4, String righAnswer, int tID) {
-        this.question = question;
-        this.answer1 = answer1;
-        this.answer2 = answer2;
-        this.answer3 = answer3;
-        this.answer4 = answer4;
-        this.righAnswer = righAnswer;
+    public MultipleChoice(int mulID, int tID, String mulQuestion, String mulStatus, String mulRighAnswer, String mulAnswer1, String mulAnswer2, String mulAnswer3, String mulAnswer4) {
+        this.mulID = mulID;
         this.tID = tID;
+        this.mulQuestion = mulQuestion;
+        this.mulStatus = mulStatus;
+        this.mulRighAnswer = mulRighAnswer;
+        this.mulAnswer1 = mulAnswer1;
+        this.mulAnswer2 = mulAnswer2;
+        this.mulAnswer3 = mulAnswer3;
+        this.mulAnswer4 = mulAnswer4;
+    }
+
+    public MultipleChoice(int tID, String mulQuestion, String mulStatus, String mulRighAnswer, String mulAnswer1, String mulAnswer2, String mulAnswer3, String mulAnswer4) {
+        this.tID = tID;
+        this.mulQuestion = mulQuestion;
+        this.mulStatus = mulStatus;
+        this.mulRighAnswer = mulRighAnswer;
+        this.mulAnswer1 = mulAnswer1;
+        this.mulAnswer2 = mulAnswer2;
+        this.mulAnswer3 = mulAnswer3;
+        this.mulAnswer4 = mulAnswer4;
+    }
+
+    public int getMulID() {
+        return mulID;
+    }
+
+    public void setMulID(int mulID) {
+        this.mulID = mulID;
     }
 
     public int gettID() {
@@ -30,51 +52,59 @@ public class MultipleChoice {
         this.tID = tID;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getMulQuestion() {
+        return mulQuestion;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setMulQuestion(String mulQuestion) {
+        this.mulQuestion = mulQuestion;
     }
 
-    public String getAnswer1() {
-        return answer1;
+    public String getMulStatus() {
+        return mulStatus;
     }
 
-    public void setAnswer1(String answer1) {
-        this.answer1 = answer1;
+    public void setMulStatus(String mulStatus) {
+        this.mulStatus = mulStatus;
     }
 
-    public String getAnswer2() {
-        return answer2;
+    public String getMulRighAnswer() {
+        return mulRighAnswer;
     }
 
-    public void setAnswer2(String answer2) {
-        this.answer2 = answer2;
+    public void setMulRighAnswer(String mulRighAnswer) {
+        this.mulRighAnswer = mulRighAnswer;
     }
 
-    public String getAnswer3() {
-        return answer3;
+    public String getMulAnswer1() {
+        return mulAnswer1;
     }
 
-    public void setAnswer3(String answer3) {
-        this.answer3 = answer3;
+    public void setMulAnswer1(String mulAnswer1) {
+        this.mulAnswer1 = mulAnswer1;
     }
 
-    public String getAnswer4() {
-        return answer4;
+    public String getMulAnswer2() {
+        return mulAnswer2;
     }
 
-    public void setAnswer4(String answer4) {
-        this.answer4 = answer4;
+    public void setMulAnswer2(String mulAnswer2) {
+        this.mulAnswer2 = mulAnswer2;
     }
 
-    public String getRighAnswer() {
-        return righAnswer;
+    public String getMulAnswer3() {
+        return mulAnswer3;
     }
 
-    public void setRighAnswer(String righAnswer) {
-        this.righAnswer = righAnswer;
+    public void setMulAnswer3(String mulAnswer3) {
+        this.mulAnswer3 = mulAnswer3;
+    }
+
+    public String getMulAnswer4() {
+        return mulAnswer4;
+    }
+
+    public void setMulAnswer4(String mulAnswer4) {
+        this.mulAnswer4 = mulAnswer4;
     }
 }
