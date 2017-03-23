@@ -6,14 +6,14 @@ package sonnvse04038.fpt.edu.vn.mobilequiz.Object;
 
 public class MultipleChoice {
 
-    private int mulID, tID;
-    private String mulQuestion,mulStatus,mulRighAnswer, mulAnswer1, mulAnswer2, mulAnswer3, mulAnswer4;
+    private int mulID, tID, mulStatus;
+    private String mulQuestion,mulRighAnswer, mulAnswer1, mulAnswer2, mulAnswer3, mulAnswer4;
 
     public MultipleChoice() {
 
     }
 
-    public MultipleChoice(int mulID, int tID, String mulQuestion, String mulStatus, String mulRighAnswer, String mulAnswer1, String mulAnswer2, String mulAnswer3, String mulAnswer4) {
+    public MultipleChoice(int mulID, int tID, String mulQuestion, int mulStatus, String mulRighAnswer, String mulAnswer1, String mulAnswer2, String mulAnswer3, String mulAnswer4) {
         this.mulID = mulID;
         this.tID = tID;
         this.mulQuestion = mulQuestion;
@@ -25,7 +25,7 @@ public class MultipleChoice {
         this.mulAnswer4 = mulAnswer4;
     }
 
-    public MultipleChoice(int tID, String mulQuestion, String mulStatus, String mulRighAnswer, String mulAnswer1, String mulAnswer2, String mulAnswer3, String mulAnswer4) {
+    public MultipleChoice(int tID, String mulQuestion, int mulStatus, String mulRighAnswer, String mulAnswer1, String mulAnswer2, String mulAnswer3, String mulAnswer4) {
         this.tID = tID;
         this.mulQuestion = mulQuestion;
         this.mulStatus = mulStatus;
@@ -60,11 +60,11 @@ public class MultipleChoice {
         this.mulQuestion = mulQuestion;
     }
 
-    public String getMulStatus() {
+    public int getMulStatus() {
         return mulStatus;
     }
 
-    public void setMulStatus(String mulStatus) {
+    public void setMulStatus(int mulStatus) {
         this.mulStatus = mulStatus;
     }
 
