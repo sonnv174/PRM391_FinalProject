@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.Test;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +26,8 @@ import android.widget.Toast;
 public class HomeFlagment extends Fragment implements View.OnClickListener {
     FloatingActionButton fab;
 
+    ArrayList<Test> listTest;
+    DBHelper myDB;
 
     public HomeFlagment() {
         // Required empty public constructor
@@ -33,6 +39,10 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        listTest = new ArrayList<>();
+        myDB = new DBHelper(getContext(), DBHelper.DB_NAME, null, DBHelper.DB_VERSION);
+
+        listTest = myDB.getAllTest();
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -46,16 +56,36 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
         //set listener here
         fab.setOnClickListener(this);
 
-        GridView gridview = (GridView) view.findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(getContext()));
+        for (int i = 0; i< listTest.size(); i++) {
+            listTestName.add(listTest.get(i).gettName());
+            if(i%6 == 0) {
+                listImageId.add(R.drawable.hm_twitter);
+            }
+            if(i%6 == 1) {
+                listImageId.add(R.drawable.hm_instagram);
+            }
+            if(i%6 == 2) {
+                listImageId.add(R.drawable.hm_linkedin);
+            }
+            if(i%6 == 3) {
+                listImageId.add(R.drawable.hm_plus);
+            }
+            if(i%6 == 4) {
+                listImageId.add(R.drawable.hm_facebook);
+            }
+            if(i%6 == 5) {
+                listImageId.add(R.drawable.hm_youtube);
+            }
+        }
+        CustomGrid adapter = new CustomGrid(getContext(), listTestName, listImageId);
+        grid = (GridView) view.findViewById(R.id.grid);
+        grid.setAdapter(adapter);
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-//                Toast.makeText(getContext(), "" + position, Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent testIntent = new Intent(getContext(), TestActivity.class);
-                testIntent.putExtra("testID", position);
+                testIntent.putExtra("testID", position + 1);
                 startActivity(testIntent);
             }
         });
@@ -71,4 +101,8 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
 
         }
     }
+
+    GridView grid;
+    ArrayList<String> listTestName = new ArrayList<>();
+    ArrayList<Integer> listImageId = new ArrayList<>();
 }

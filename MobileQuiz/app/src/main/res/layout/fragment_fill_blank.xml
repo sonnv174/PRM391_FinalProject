@@ -41,19 +41,19 @@
         android:ems="10"
     android:inputType="textPersonName"
     android:maxLength="20"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
+        android:layout_alignBaseline="@+id/tvAnswer3"
+        android:layout_alignBottom="@+id/tvAnswer3"
+        android:layout_toRightOf="@+id/tvAnswer3"
+        android:layout_toEndOf="@+id/tvAnswer3" />
 
     <EditText
         android:id="@+id/edtAnswer2"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView15"
-        android:layout_alignBottom="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15"
-        android:layout_toRightOf="@+id/textView15"
+        android:layout_alignBaseline="@+id/tvAnswer2"
+        android:layout_alignBottom="@+id/tvAnswer2"
+        android:layout_toEndOf="@+id/tvAnswer2"
+        android:layout_toRightOf="@+id/tvAnswer2"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -61,10 +61,10 @@
         android:id="@+id/edtAnswer3"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView16"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_toEndOf="@+id/textView16"
-        android:layout_toRightOf="@+id/textView16"
+        android:layout_alignBaseline="@+id/tvAnswer1"
+        android:layout_alignBottom="@+id/tvAnswer1"
+        android:layout_toEndOf="@+id/tvAnswer1"
+        android:layout_toRightOf="@+id/tvAnswer1"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -72,10 +72,10 @@
         android:id="@+id/edtAnswer4"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView18"
-        android:layout_alignBottom="@+id/textView18"
-        android:layout_toEndOf="@+id/textView18"
-        android:layout_toRightOf="@+id/textView18"
+        android:layout_alignBaseline="@+id/tvAnswer4"
+        android:layout_alignBottom="@+id/tvAnswer4"
+        android:layout_toEndOf="@+id/tvAnswer4"
+        android:layout_toRightOf="@+id/tvAnswer4"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -85,16 +85,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_alignBaseline="@+id/textView19"
-        android:layout_alignBottom="@+id/textView19"
-        android:layout_toRightOf="@+id/textView19"
-        android:layout_toEndOf="@+id/textView19" />
+        android:layout_alignBaseline="@+id/tvAnswer5"
+        android:layout_alignBottom="@+id/tvAnswer5"
+        android:layout_toRightOf="@+id/tvAnswer5"
+        android:layout_toEndOf="@+id/tvAnswer5" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/tvAnswer5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView16"
+        android:layout_alignBottom="@+id/tvAnswer1"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@+id/edtAnswer4"
@@ -103,10 +103,10 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tvAnswer4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView16"
+        android:layout_alignBottom="@+id/tvAnswer1"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@+id/edtAnswer3"
@@ -115,7 +115,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvAnswer3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
@@ -128,7 +128,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tvAnswer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -141,7 +141,7 @@
         android:layout_toEndOf="@+id/edtAnswer1" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tvAnswer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="③"

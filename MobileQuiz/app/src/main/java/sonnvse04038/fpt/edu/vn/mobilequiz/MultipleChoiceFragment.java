@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.FillBlank;
 import sonnvse04038.fpt.edu.vn.mobilequiz.Object.MultipleChoice;
 
 
@@ -21,10 +22,9 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
 
     RadioButton radA, radB, radC, radD;
     TextView tvQuestion;
-    String righAnswer = "Question A";
+    String righAnswer;
     String answer = "";
-    boolean result = false;
-    MultipleChoice mc = new MultipleChoice(0, 0, null, 1, null, null, null, null, null);
+    MultipleChoice mc;
 
     public MultipleChoiceFragment() {
         // Required empty public constructor
@@ -53,18 +53,16 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
         radC.setOnClickListener(this);
         radD.setOnClickListener(this);
 
-        mc.setMulQuestion("Question");
-        mc.setMulAnswer1("Answer A");
-        mc.setMulAnswer2("Answer B");
-        mc.setMulAnswer3("Answer C");
-        mc.setMulAnswer4("Answer D");
-        mc.setMulRighAnswer(righAnswer);
-
+        //get object was sent from TestFragment
+        Bundle bd = getArguments();
+        mc = (MultipleChoice) bd.getSerializable("mulQuestion");
         tvQuestion.setText(mc.getMulQuestion());
         radA.setText(mc.getMulAnswer1());
         radB.setText(mc.getMulAnswer2());
         radC.setText(mc.getMulAnswer3());
         radD.setText(mc.getMulAnswer4());
+        righAnswer = mc.getMulRighAnswer();
+
     }
 
     @Override
@@ -72,24 +70,21 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
         int GUI_id = view.getId();
         switch (GUI_id) {
             case R.id.radA:
-                Toast.makeText(getContext(), radA.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(getContext(), radA.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
                 answer = radA.getText().toString();
                 break;
             case R.id.radB:
-                Toast.makeText(getContext(), radB.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
+           //     Toast.makeText(getContext(), radB.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
                 answer = radB.getText().toString();
                 break;
             case R.id.radC:
-                Toast.makeText(getContext(), radC.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
+           //     Toast.makeText(getContext(), radC.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
                 answer = radC.getText().toString();
                 break;
             case R.id.radD:
-                Toast.makeText(getContext(), radD.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
+            //    Toast.makeText(getContext(), radD.getText().toString()+" button is checked!", Toast.LENGTH_SHORT).show();
                 answer = radD.getText().toString();
                 break;
-        }
-        if(answer == mc.getMulRighAnswer()){
-            result = true;
         }
     }
 }

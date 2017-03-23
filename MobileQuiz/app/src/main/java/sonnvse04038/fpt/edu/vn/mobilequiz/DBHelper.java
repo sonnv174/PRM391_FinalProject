@@ -11,6 +11,9 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import sonnvse04038.fpt.edu.vn.mobilequiz.Object.FillBlank;
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.Matching;
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.MultipleChoice;
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.Test;
 
 /**
  * Created by sonnv174 on 2/13/2017.
@@ -90,7 +93,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //we need to create sql statement to define contacts table
         String sqlCreateTestTable = "CREATE TABLE `test` (\n" +
-                "`tID` mediumint PRIMARY KEY,\n" +
+                "`tID` INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "`tName` varchar(255) default NULL,\n" +
                 "`info` varchar(255) default NULL,\n" +
                 "`time` int default 600,\n" +
@@ -98,7 +101,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")";
 
         String sqlCreateFillingTable = "CREATE TABLE `filling` (" +
-                "`fID` int PRIMARY KEY," +
+                "`fID` INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "`tID` int," +
                 "`fQuestion` varchar(255) default NULL," +
                 "`fStatus` int default 1,\n" + //1 is anable, 0 is disable
@@ -110,7 +113,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")";
 
         String sqlCreateMultipleTable = "CREATE TABLE `multiple` (" +
-                "`mulID` int PRIMARY KEY," +
+                "`mulID` INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "`tID` int," +
                 "`mulQuestion`  varchar(255) default NULL," +
                 "`mulStatus` int default 1,\n" + //1 is anable, 0 is disable
@@ -122,7 +125,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")";
 
         String sqlCreateMatchingTable = "CREATE TABLE `matching` (" +
-                "`matID` int PRIMARY KEY," +
+                "`matID` INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "`tID` int," +
                 "`matQuestion`  varchar(255) default NULL," +
                 "`matStatus` int default 1,\n" + //1 is anable, 0 is disable
@@ -134,17 +137,17 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")";
 
         String sqlCreateUserTable = "CREATE TABLE `user` (" +
-                "`uID` int PRIMARY KEY," +
+                "`uID` INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "`uName`  varchar(255) default NULL" +
                 ")";
 
         String sqlCreateResultTable = "CREATE TABLE `result` (" +
-                "`rID` int PRIMARY KEY," +
+                "`rID` INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "`uID` int," +
                 "`tID` int," +
                 "`timeStart` datetime," +
                 "`duration` int," +
-                "`mark` int" +
+                "`mark` double" +
                 ");";
 
         //and after that, execute the sql statement
@@ -190,7 +193,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<FillBlank> getAllFillBlankByTestID(int testID) {
         ArrayList<FillBlank> list = new ArrayList<>();
         Cursor rs = null;
-        String sql = "select fID, tID, fQuestion, fStatus, fAnswer1, fAnswer2, fAnswer3, fAnswer4, fAnswer5 from filling";
+        String sql = "select fID, tID, fQuestion, fStatus, fAnswer1, fAnswer2, fAnswer3, fAnswer4, fAnswer5 from filling where tID = '" + testID + "'";
         rs = db.rawQuery(sql, null);
         Log.v("Number of selected", "Number: " + rs.getCount());
         rs.moveToFirst();
@@ -205,6 +208,89 @@ public class DBHelper extends SQLiteOpenHelper {
             f.setfAnswer3(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_3)));
             f.setfAnswer4(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_4)));
             f.setfAnswer5(rs.getString(rs.getColumnIndex(FILLING_COLUMN_ANSWER_5)));
+            list.add(f);
+            rs.moveToNext();
+        }
+        return list;
+    }
+
+
+    public ArrayList<MultipleChoice> getAllMultipleByTestID(int testID) {
+        ArrayList<MultipleChoice> list = new ArrayList<>();
+        Cursor rs = null;
+        String sql = "select mulID, tID, mulQuestion, mulStatus, mulRightAnswer, mulAnswer1, mulAnswer2, mulAnswer3, mulAnswer4 from multiple where tID = '" + testID + "'";
+        rs = db.rawQuery(sql, null);
+        Log.v("Number of selected", "Number: " + rs.getCount());
+        rs.moveToFirst();
+        while (rs.isAfterLast() == false) {
+            MultipleChoice f = new MultipleChoice();
+            f.setMulID(rs.getInt(rs.getColumnIndex(MULTIPLE_COLUMN_ID)));
+            f.settID(rs.getInt(rs.getColumnIndex(TEST_COLUMN_ID)));
+            f.setMulQuestion(rs.getString(rs.getColumnIndex(MULTIPLE_COLUMN_QUESTION)));
+            f.setMulStatus(rs.getInt(rs.getColumnIndex(MULTIPLE_COLUMN_STATUS)));
+            f.setMulRighAnswer(rs.getString(rs.getColumnIndex(MULTIPLE_COLUMN_RIGHT_ANSWER)));
+            f.setMulAnswer1(rs.getString(rs.getColumnIndex(MULTIPLE_COLUMN_ANSWER_1)));
+            f.setMulAnswer2(rs.getString(rs.getColumnIndex(MULTIPLE_COLUMN_ANSWER_2)));
+            f.setMulAnswer3(rs.getString(rs.getColumnIndex(MULTIPLE_COLUMN_ANSWER_3)));
+            f.setMulAnswer4(rs.getString(rs.getColumnIndex(MULTIPLE_COLUMN_ANSWER_4)));
+            list.add(f);
+            rs.moveToNext();
+        }
+        return list;
+    }
+
+    public ArrayList<Matching> getAllMatchingByTestID(int testID) {
+        ArrayList<Matching> list = new ArrayList<>();
+        Cursor rs = null;
+        String sql = "select matID, tID, matQuestion, matStatus, matAnswer1, matAnswer2, matAnswer3, matAnswer4 from matching where tID = '" + testID + "'";
+        rs = db.rawQuery(sql, null);
+        Log.v("Number of selected", "Number: " + rs.getCount());
+        rs.moveToFirst();
+        while (rs.isAfterLast() == false) {
+            Matching f = new Matching();
+            f.setmId(rs.getInt(rs.getColumnIndex(MATCHING_COLUMN_ID)));
+            f.settID(rs.getInt(rs.getColumnIndex(TEST_COLUMN_ID)));
+            f.setmQuestion(rs.getString(rs.getColumnIndex(MATCHING_COLUMN_QUESTION)));
+            f.setStatus(rs.getInt(rs.getColumnIndex(MATCHING_COLUMN_STATUS)));
+            f.setmAnswer1(rs.getString(rs.getColumnIndex(MATCHING_COLUMN_ANSWER_1)));
+            f.setmAnswer2(rs.getString(rs.getColumnIndex(MATCHING_COLUMN_ANSWER_2)));
+            f.setmAnswer3(rs.getString(rs.getColumnIndex(MATCHING_COLUMN_ANSWER_3)));
+            f.setmAnswer4(rs.getString(rs.getColumnIndex(MATCHING_COLUMN_ANSWER_4)));
+            list.add(f);
+            rs.moveToNext();
+        }
+        return list;
+    }
+
+    public Test getTestByID(int testID) {
+        Test f = new Test();
+        Cursor rs = null;
+        String sql = "select tID, tName, info, time, tStatus from test where tID = '" + testID + "'";
+        rs = db.rawQuery(sql, null);
+        rs.moveToFirst();
+        f.settID(rs.getInt(rs.getColumnIndex(TEST_COLUMN_ID)));
+        f.settName(rs.getString(rs.getColumnIndex(TEST_COLUMN_NAME)));
+        f.setInfo(rs.getString(rs.getColumnIndex(TEST_COLUMN_INFO)));
+        f.setTime(rs.getInt(rs.getColumnIndex(TEST_COLUMN_TIME)));
+        f.settStatus(rs.getInt(rs.getColumnIndex(TEST_COLUMN_STATUS)));
+
+        return f;
+    }
+
+    public ArrayList<Test> getAllTest() {
+        ArrayList<Test> list = new ArrayList<>();
+        Cursor rs = null;
+        String sql = "select tID, tName, info, time, tStatus from test";
+        rs = db.rawQuery(sql, null);
+        Log.v("Number of selected", "Number: " + rs.getCount());
+        rs.moveToFirst();
+        while (rs.isAfterLast() == false) {
+            Test f = new Test();
+            f.settID(rs.getInt(rs.getColumnIndex(TEST_COLUMN_ID)));
+            f.settName(rs.getString(rs.getColumnIndex(TEST_COLUMN_NAME)));
+            f.setInfo(rs.getString(rs.getColumnIndex(TEST_COLUMN_INFO)));
+            f.setTime(rs.getInt(rs.getColumnIndex(TEST_COLUMN_TIME)));
+            f.settStatus(rs.getInt(rs.getColumnIndex(TEST_COLUMN_STATUS)));
             list.add(f);
             rs.moveToNext();
         }
