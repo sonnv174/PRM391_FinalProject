@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -44,6 +45,10 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     ArrayList<FillBlank> listFilling;
     ArrayList<Matching> listMatching;
     ArrayList<MultipleChoice> listMultiple;
+
+    ArrayList<TabHost.TabSpec> fillTabSpecs;
+    ArrayList<TabHost.TabSpec> matTabSpecs;
+    ArrayList<TabHost.TabSpec> mulTabSpecs;
 
     public TestFragment() {
         // Required empty public constructor
@@ -83,9 +88,13 @@ public class TestFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onTabChanged(String s) {
 
-                Toast.makeText(getContext(), "Start!" + mTabHost.getCurrentTab() + " == " + mTabHost.getCurrentTabTag(), Toast.LENGTH_SHORT).show();
+         //       Toast.makeText(getContext(), "Start!" + mTabHost.getCurrentTab() + " == " + mTabHost.getCurrentTabTag(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        fillTabSpecs = new ArrayList<>();
+        matTabSpecs = new ArrayList<>();
+        mulTabSpecs = new ArrayList<>();
 
         int i = 0;
 
@@ -94,7 +103,9 @@ public class TestFragment extends Fragment implements View.OnClickListener {
             i++;
             Bundle bundle = new Bundle();
             bundle.putSerializable("fQuestion", f);
-            mTabHost.addTab(mTabHost.newTabSpec("tab" + i).setIndicator("Q" + i, null), FillBlankFragment.class, bundle);
+            TabHost.TabSpec fTabSpec = mTabHost.newTabSpec("tab" + i).setIndicator("Q" + i, null);
+            mTabHost.addTab(fTabSpec, FillBlankFragment.class, bundle);
+            fillTabSpecs.add(fTabSpec);
         }
 
         mTabHost.addTab(
@@ -113,6 +124,12 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     }
 
 
+    public void markFilling() {
+        for(int i= 0; i < listFilling.size(); i++) {
+
+        }
+    }
+
     @Override
     public void onClick(View view) {
         int GUI_id = view.getId();
@@ -121,8 +138,17 @@ public class TestFragment extends Fragment implements View.OnClickListener {
 
                 View v = mTabHost.getChildAt(0);
                 TextView tv = (TextView) v.findViewById(R.id.tvFQuestion);
-                Toast.makeText(getContext(), "Start!" +tv.getText(), Toast.LENGTH_SHORT).show();
-//                //Finish and go to Result fragment
+                Toast.makeText(getContext(), "Start!" + tv.getText() +mTabHost.getTabWidget().getChildCount(), Toast.LENGTH_SHORT).show();
+
+//                EditText et1 = (EditText) v.findViewById(R.id.edtAnswer1);
+//                EditText et2 = (EditText) v.findViewById(R.id.edtAnswer2);
+//                EditText et3 = (EditText) v.findViewById(R.id.edtAnswer3);
+//                EditText et4 = (EditText) v.findViewById(R.id.edtAnswer4);
+//                EditText et5 = (EditText) v.findViewById(R.id.edtAnswer5);
+//                Toast.makeText(getContext(), "Start!" +tv.getText() + et1.getText() + et2.getText() + et3.getText() + et4.getText() + et5.getText(), Toast.LENGTH_SHORT).show();
+//
+//
+// Finish and go to Result fragment
 //                ResultFragment fragment = new ResultFragment();
 //                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                fragmentTransaction.replace(R.id.test_fragment_container, fragment);
