@@ -1,24 +1,34 @@
 package sonnvse04038.fpt.edu.vn.mobilequiz.Object;
 
+import java.io.Serializable;
+
 /**
  * Created by sonnv174 on 3/22/2017.
  */
 
-public class Matching {
-    String rAnswer, mAnswer1,mAnswer2,mAnswer3,mAnswer4;
+public class Matching implements Serializable{
+    String mQuestion, mAnswer1,mAnswer2,mAnswer3,mAnswer4;
     int mId,tID,status;
 
     public Matching() {
     }
 
+    public int getStatus() {
+        return status;
+    }
 
-    public Matching(int mId,int tID,int status,String rAnswer,String mAnswer1, String mAnswer2, String mAnswer3,String mAnswer4)
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Matching(int mId, int tID, String mQuestion, int status, String mAnswer1, String mAnswer2, String mAnswer3, String mAnswer4)
     {
+
 
     }
 
 
-    public Matching(int tID,int status,String rAnswer,String mAnswer1, String mAnswer2, String mAnswer3,String mAnswer4)
+    public Matching(int tID,String mQuestion,int status,String mAnswer1, String mAnswer2, String mAnswer3,String mAnswer4)
     {
 
     }
@@ -49,9 +59,9 @@ public class Matching {
         this.mAnswer2 = mAnswer2;
     }
 
-    public String getrAnswer() {
+    public String getmQuestion() {
 
-        return rAnswer;
+        return mQuestion;
     }
 
     public String getmAnswer1() {
@@ -62,8 +72,8 @@ public class Matching {
         this.mAnswer1 = mAnswer1;
     }
 
-    public void setrAnswer(String rAnswer) {
-        this.rAnswer = rAnswer;
+    public void setmQuestion(String mQuestion) {
+        this.mQuestion = mQuestion;
     }
 
     public String getmAnswer4() {
