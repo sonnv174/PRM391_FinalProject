@@ -24,7 +24,7 @@ public class MultipleChoiceFragment extends Fragment implements View.OnClickList
     String righAnswer = "Question A";
     String answer = "";
     boolean result = false;
-    MultipleChoice mc = new MultipleChoice(0, 0, null, null, null, null, null, null, null);
+    MultipleChoice mc = new MultipleChoice(0, 0, null, 1, null, null, null, null, null);
 
     public MultipleChoiceFragment() {
         // Required empty public constructor

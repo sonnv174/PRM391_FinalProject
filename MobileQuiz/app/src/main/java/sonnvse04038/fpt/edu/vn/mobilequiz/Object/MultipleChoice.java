@@ -1,10 +1,12 @@
 package sonnvse04038.fpt.edu.vn.mobilequiz.Object;
 
+import java.io.Serializable;
+
 /**
  * Created by sonnv174 on 3/22/2017.
  */
 
-public class MultipleChoice {
+public class MultipleChoice implements Serializable{
 
     private int mulID, tID, mulStatus;
     private String mulQuestion,mulRighAnswer, mulAnswer1, mulAnswer2, mulAnswer3, mulAnswer4;
