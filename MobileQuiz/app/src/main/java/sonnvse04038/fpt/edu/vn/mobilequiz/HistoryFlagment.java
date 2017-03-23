@@ -12,7 +12,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.TableRow.LayoutParams;
 
-
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.Result;
 
 
 /**
@@ -24,9 +24,10 @@ public class HistoryFlagment extends android.support.v4.app.Fragment {
     String test[] = {"Math","Geography","Physical","Accouting","Managing","Constructing","Programming","Art","History"};
     String time[] = {"11:00 23/02/2011","08:00 08/02/2011","18:10 02/02/2011","12:27 22/02/2011","11:15 14/02/2011","15:00 10/11/2011","10:00 15/03/2011","16:00 19/02/2011","12:00 24/02/2011"};
     String duration[]= {"45 minute","15 minute","30 minute","30 minute","30 minute","30 minute","30 minute","30 minute","30 minute"};
-    String comple[]= {"30 minute","10 minute","30 minute","27 minute","22 minute","15 minute","6 minute", "29 minute", "21 minute"};
+    //String comple[]= {"30 minute","10 minute","30 minute","27 minute","22 minute","15 minute","6 minute", "29 minute", "21 minute"};
     String mark[]= {"7","6","2","3","5","10","8","9","1"};
-    String status[]= {"Pass","Pass","Failed","Failed","Pass","Pass","Pass","Pass","Failed"};
+    //String status[]= {"Pass","Pass","Failed","Failed","Pass","Pass","Pass","Pass","Failed"};
+    Result result = new Result(1,1,1,1,7.5);
     android.widget.TableLayout tl;
     android.widget.TableRow tr;
     android.widget.TextView tvUser,tvTestName,tvTimeStart,tvDuration,tvTimeCom,tvMark,tvStatus;
@@ -80,11 +81,6 @@ public class HistoryFlagment extends android.support.v4.app.Fragment {
         tvDuration.setPadding(5, 5, 5, 0);
         tr.addView(tvDuration);
 
-        tvTimeCom = new TextView(getContext());
-        tvTimeCom.setText("Time Completed");
-        tvTimeCom.setLayoutParams(new LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT));
-        tvTimeCom.setPadding(5, 5, 5, 0);
-        tr.addView(tvTimeCom);
 
         tvMark = new TextView(getContext());
         tvMark.setText("Mark");
@@ -92,11 +88,7 @@ public class HistoryFlagment extends android.support.v4.app.Fragment {
         tvMark.setPadding(5, 5, 5, 0);
         tr.addView(tvMark);
 
-        tvStatus = new TextView(getContext());
-        tvStatus.setText("Status");
-        tvStatus.setLayoutParams(new LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT));
-        tvStatus.setPadding(5, 5, 5, 0);
-        tr.addView(tvStatus);
+
         // Add the TableRow to the TableLayout
         tl.addView(tr, new TableLayout.LayoutParams(
                 LayoutParams.FILL_PARENT,
@@ -132,20 +124,11 @@ public class HistoryFlagment extends android.support.v4.app.Fragment {
             tr.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
             tr.addView(tvDuration);
 
-            tvTimeCom = new android.widget.TextView(getContext());
-            tvTimeCom.setText(comple[i]);
-            tr.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
-            tr.addView(tvTimeCom);
-
             tvMark = new android.widget.TextView(getContext());
             tvMark.setText(mark[i]);
             tr.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
             tr.addView(tvMark);
 
-            tvStatus = new android.widget.TextView(getContext());
-            tvStatus.setText(status[i]);
-            tr.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
-            tr.addView(tvStatus);
 
             //Add Tablerow to TableLayout
             tl.addView(tr, android.widget.TableLayout.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);

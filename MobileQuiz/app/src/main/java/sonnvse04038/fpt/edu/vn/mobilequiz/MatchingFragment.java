@@ -21,11 +21,21 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.Matching;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MatchingFragment extends Fragment implements View.OnClickListener{
     private TextView option1, option2, option3, option4, choice1, choice2, choice3, choice4;
+    int tId, mId, status;
+    String mQues,mAnswer1,mAnswer2,mAnswer3,mAnswer4;
+    String [] input1;
+    String [] input2;
+    String [] input3;
+    String [] input4;
+
+
     public CharSequence dragData;
     Button reset;
     public MatchingFragment() {
@@ -39,7 +49,12 @@ public class MatchingFragment extends Fragment implements View.OnClickListener{
         return inflater.inflate(R.layout.fragment_matching, container, false);
 
     }
-
+    public String[] split(String Answer)
+    {
+        String [] inputR;
+        inputR = Answer.split("\\|");
+        return inputR;
+    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -55,6 +70,33 @@ public class MatchingFragment extends Fragment implements View.OnClickListener{
             //button reset
             reset = (Button)getActivity().findViewById(R.id.btnReset);
             reset.setOnClickListener(this);
+        Matching matching = new Matching();
+        matching.settID(1);
+        matching.setmId(1);
+        matching.setmQuestion("Nam Kha");
+        matching.setStatus(1);
+        matching.setmAnswer1("Nam Kha a | fat");
+        matching.setmAnswer2("1 is | positive numbers");
+        matching.setmAnswer3("Viet Nam has 63 | city");
+        matching.setmAnswer4("Orange start with | O");
+        mAnswer1 = matching.getmAnswer1();
+        mAnswer2 = matching.getmAnswer2();
+        mAnswer3 = matching.getmAnswer3();
+        mAnswer4 = matching.getmAnswer4();
+
+        //get data to textview
+        input1 = split(mAnswer1);
+        option1.setText(input1[0]);
+        choice1.setText(input1[1]);
+        input2 = split(mAnswer2);
+        option2.setText(input2[0]);
+        choice2.setText(input2[1]);
+        input3 = split(mAnswer3);
+        option3.setText(input3[0]);
+        choice3.setText(input3[1]);
+        input4 = split(mAnswer4);
+        option4.setText(input4[0]);
+        choice4.setText(input4[1]);
 
             //set touch listeners
             option1.setOnTouchListener(new ChoiceTouchListener());
@@ -154,22 +196,27 @@ public class MatchingFragment extends Fragment implements View.OnClickListener{
         option1.setVisibility(TextView.VISIBLE);
         option2.setVisibility(TextView.VISIBLE);
         option3.setVisibility(TextView.VISIBLE);
+        option4.setVisibility(TextView.VISIBLE);
 
-        choice1.setText("A for ");
-        choice2.setText("O for ");
-        choice3.setText("B for ");
+        choice1.setText(input1[1]);
+        choice2.setText(input2[1]);
+        choice3.setText(input3[1]);
+        choice1.setText(input4[1]);
 
         choice1.setTag(null);
         choice2.setTag(null);
         choice3.setTag(null);
+        choice4.setTag(null);
 
         choice1.setTypeface(Typeface.DEFAULT);
         choice2.setTypeface(Typeface.DEFAULT);
         choice3.setTypeface(Typeface.DEFAULT);
+        choice4.setTypeface(Typeface.DEFAULT);
 
         choice1.setOnDragListener(new ChoiceDragListener());
         choice2.setOnDragListener(new ChoiceDragListener());
         choice3.setOnDragListener(new ChoiceDragListener());
+        choice4.setOnDragListener(new ChoiceDragListener());
     }
 
 

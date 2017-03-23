@@ -60,9 +60,9 @@
         android:id="@+id/option_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/option_1"
-        android:layout_alignRight="@+id/option_1"
+        android:layout_alignLeft="@+id/option_1"
         android:layout_below="@+id/option_1"
+
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/raw_boder"
@@ -84,8 +84,8 @@
         android:id="@+id/option_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/option_3"
-        android:layout_alignRight="@+id/option_3"
+
+        android:layout_alignLeft="@+id/option_3"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/option_3"
         android:background="@drawable/raw_boder"
@@ -101,17 +101,19 @@
         android:layout_alignStart="@+id/Bcol"
         android:layout_marginBottom="10dp"
         android:background="@drawable/raw_boder"
+
         android:text="5"/>
 
     <TextView
         android:id="@+id/choice_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/choice_1"
         android:layout_alignRight="@+id/choice_1"
         android:background="@drawable/raw_boder"
         android:layout_below="@id/choice_1"
         android:layout_marginBottom="10dp"
+        android:layout_alignLeft="@+id/Bcol"
+        android:layout_alignStart="@+id/Bcol"
         android:layout_marginTop="10dp"
         android:text="6"/>
 
@@ -132,8 +134,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/option_4"
-        android:layout_alignEnd="@+id/choice_3"
-        android:layout_alignRight="@+id/choice_3"
+        android:layout_alignStart="@+id/choice_2"
+        android:layout_alignLeft="@+id/choice_3"
         android:layout_marginTop="10dp"
         android:background="@drawable/raw_boder"
         android:text="8"/>
