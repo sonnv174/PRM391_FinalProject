@@ -1,7 +1,9 @@
 package sonnvse04038.fpt.edu.vn.mobilequiz;
 
 
+import android.app.AlertDialog;
 import android.app.TabActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -38,10 +40,9 @@ import sonnvse04038.fpt.edu.vn.mobilequiz.Object.MultipleChoice;
  */
 public class TestFragment extends Fragment implements View.OnClickListener {
 
-    Button btnFinishNow, btnPrev, btnNext;
+    Button btnFinishNow, btnPrev, btnNext, btnReset;
     ProgressBar prbStatus;
     private FragmentTabHost mTabHost;
-    int percent = 100 / 6;
     int testID, posCurTab, totalQuestion;
     int totalMark = 0;
     int maxMark = 0;
@@ -97,10 +98,13 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         btnPrev.setOnClickListener(this);
         btnNext = (Button) view.findViewById(R.id.btnNext);
         btnNext.setOnClickListener(this);
+        btnReset = (Button) view.findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(this);
 
         prbStatus = (ProgressBar) view.findViewById(R.id.prbStatus);
-        prbStatus.setMax(100);
+        prbStatus.setMax(totalQuestion);
         prbStatus.getProgressDrawable().setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+        prbStatus.setProgress(posCurTab + 1);
 
         mTabHost = (FragmentTabHost) getActivity().findViewById(android.R.id.tabhost);
         mTabHost.setup(getContext(), getActivity().getSupportFragmentManager(), android.R.id.tabcontent);
@@ -155,7 +159,29 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     }
 
     private void markMatching(int posTab) {
+        int markMat = 0;
+        int posQuetion = posTab - listFilling.size() - listMultiple.size();
+        Matching fb = listMatching.get(posQuetion);
+        View v = mTabHost.getChildAt(0);
 
+        EditText edt1 = (EditText) v.findViewById(R.id.choice_1);
+        EditText edt2 = (EditText) v.findViewById(R.id.choice_2);
+        EditText edt3 = (EditText) v.findViewById(R.id.choice_3);
+        EditText edt4 = (EditText) v.findViewById(R.id.choice_4);
+
+        if (edt1.getText().toString().equalsIgnoreCase(fb.getmAnswer1())) {
+            markMat += 1;
+        }
+        if (edt2.getText().toString().equalsIgnoreCase(fb.getmAnswer2().trim())) {
+            markMat += 1;
+        }
+        if (edt3.getText().toString().equalsIgnoreCase(fb.getmAnswer3().trim())) {
+            markMat += 1;
+        }
+        if (edt4.getText().toString().equalsIgnoreCase(fb.getmAnswer4().trim())) {
+            markMat += 1;
+        }
+        arrMark.set(posTab, markMat);
     }
 
     private void markMultiple(int posTab) {
@@ -200,19 +226,19 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         EditText edt4 = (EditText) v.findViewById(R.id.edtAnswer4);
         EditText edt5 = (EditText) v.findViewById(R.id.edtAnswer5);
 
-        if (edt1.getText().toString().equals(fb.getfAnswer1())) {
+        if (edt1.getText().toString().trim().equalsIgnoreCase(fb.getfAnswer1().trim())) {
             markFill += 1;
         }
-        if (edt2.getText().toString().equals(fb.getfAnswer2())) {
+        if (edt2.getText().toString().trim().equalsIgnoreCase(fb.getfAnswer2().trim())) {
             markFill += 1;
         }
-        if (edt3.getText().toString().equals(fb.getfAnswer3())) {
+        if (edt3.getText().toString().trim().equalsIgnoreCase(fb.getfAnswer3().trim())) {
             markFill += 1;
         }
-        if (edt4.getText().toString().equals(fb.getfAnswer4())) {
+        if (edt4.getText().toString().trim().equalsIgnoreCase(fb.getfAnswer4().trim())) {
             markFill += 1;
         }
-        if (edt5.getText().toString().equals(fb.getfAnswer5())) {
+        if (edt5.getText().toString().trim().equalsIgnoreCase(fb.getfAnswer5().trim())) {
             markFill += 1;
         }
         arrMark.set(posTab, markFill);
@@ -236,6 +262,11 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         } else {
             btnPrev.setVisibility(View.INVISIBLE);
         }
+        if(posCurTab < totalQuestion && posCurTab >= totalQuestion - listMatching.size()) {
+            btnReset.setVisibility(View.VISIBLE);
+        }else {
+            btnReset.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -244,23 +275,48 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         switch (GUI_id) {
             case R.id.btnFinishNow:
                 try {
-                    markTab(posCurTab);
-                    countTotalMark();
-                    Toast.makeText(getContext(), totalMark + "/" + maxMark + " haha", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-                    //Finish and go to Result fragment
-                    ResultFragment fragment = new ResultFragment();
+                    builder.setTitle("Finish Test");
+                    builder.setMessage("Do you want to finish now?");
 
-                    Bundle bundleMark = new Bundle();
-                    bundleMark.putInt("totalMark", totalMark);
-                    bundleMark.putInt("maxMark", maxMark);
-                    bundleMark.putInt("testID", testID);
-                    bundleMark.putSerializable("startTTime", startTime);
-                    fragment.setArguments(bundleMark);
+                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.test_fragment_container, fragment);
-                    fragmentTransaction.commit();
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Do do my action here
+                            markTab(posCurTab);
+                            countTotalMark();
+                            Toast.makeText(getContext(), totalMark + "/" + maxMark + " haha", Toast.LENGTH_SHORT).show();
+
+                            //Finish and go to Result fragment
+                            ResultFragment fragment = new ResultFragment();
+
+                            Bundle bundleMark = new Bundle();
+                            bundleMark.putInt("totalMark", totalMark);
+                            bundleMark.putInt("maxMark", maxMark);
+                            bundleMark.putInt("testID", testID);
+                            bundleMark.putSerializable("startTTime", startTime);
+                            fragment.setArguments(bundleMark);
+
+                            android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.test_fragment_container, fragment);
+                            fragmentTransaction.commit();
+                            dialog.dismiss();
+                        }
+
+                    });
+
+                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // I do not need any action here you might
+                            dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
                 } catch (Exception e) {
 
                 }
@@ -270,12 +326,9 @@ public class TestFragment extends Fragment implements View.OnClickListener {
                 try {
                     markTab(posCurTab);
 
-                    percent += 100 / 6;
-                    percent = percent >= 100 ? 100 : percent;
-                    prbStatus.setProgress(percent);
-
                     posCurTab = posCurTab < totalQuestion - 1 ? ++posCurTab : totalQuestion - 1;
                     mTabHost.setCurrentTab(posCurTab);
+                    prbStatus.setProgress(posCurTab + 1);
                     show_hide_Button();
                 } catch (Exception e) {
 
@@ -286,13 +339,18 @@ public class TestFragment extends Fragment implements View.OnClickListener {
                 try {
                     markTab(posCurTab);
 
-                    percent -= 100 / 6;
-                    percent = percent <= 0 ? 0 : percent;
-                    prbStatus.setProgress(percent);
-
                     posCurTab = posCurTab > 0 ? --posCurTab : 0;
                     mTabHost.setCurrentTab(posCurTab);
+                    prbStatus.setProgress(posCurTab + 1);
                     show_hide_Button();
+                } catch (Exception e) {
+
+                }
+                break;
+
+            case R.id.btnReset:
+                try {
+
                 } catch (Exception e) {
 
                 }

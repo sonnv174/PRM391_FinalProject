@@ -5,20 +5,38 @@ package sonnvse04038.fpt.edu.vn.mobilequiz.Object;
  */
 
 public class Result {
-    int rID,uID,tID,time,duration;
+    int rID,uID,tID;
     Double mark;
+    String timeStart,duration;
 
     public Result() {
     }
 
-    public Result(int rID,int uID,int tID,int time,int duration,Double mark)
-    {
-
+    public Result(int rID, int uID, int tID, Double mark, String timeStart, String duration) {
+        this.rID = rID;
+        this.uID = uID;
+        this.tID = tID;
+        this.mark = mark;
+        this.timeStart = timeStart;
+        this.duration = duration;
     }
-    public Result(int uID,int tID,int time,int duration,Double mark)
-    {
 
+    public Result(int uID, int tID, Double mark, String timeStart, String duration) {
+        this.uID = uID;
+        this.tID = tID;
+        this.mark = mark;
+        this.timeStart = timeStart;
+        this.duration = duration;
     }
+
+    public String getTimeStart() {
+        return timeStart;
+    }
+
+    public void setTimeStart(String timeStart) {
+        this.timeStart = timeStart;
+    }
+
     public Double getMark() {
         return mark;
     }
@@ -27,21 +45,14 @@ public class Result {
         this.mark = mark;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
 
     public int gettID() {
         return tID;

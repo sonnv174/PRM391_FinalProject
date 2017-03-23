@@ -8,10 +8,14 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.Test;
+
 public class TestActivity extends AppCompatActivity {
 
     StartTestFragment fragment;
-    public int testID;
+    int testID;
+    DBHelper myDB;
+    Test test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +23,12 @@ public class TestActivity extends AppCompatActivity {
 
         //get testID here
         testID = getIntent().getIntExtra("testID", 0);
-        //Toast.makeText(getApplicationContext(), "" + testID, Toast.LENGTH_SHORT).show();
 
-        //Send testID data to start test fragment
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("testID", testID);
+        myDB = new DBHelper(getApplicationContext(), DBHelper.DB_NAME, null, DBHelper.DB_VERSION);
+        test = myDB.getTestByID(testID);
 
         //set title with the name of test
-        setTitle("Demo test" + testID);
+        setTitle(test.gettName());
 
         //Set the fragment initially
         fragment = new StartTestFragment();

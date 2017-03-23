@@ -35,9 +35,9 @@
         android:id="@+id/btnFinishNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Finish Now"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Finish Now" />
 
     <ProgressBar
         android:id="@+id/prbStatus"
@@ -68,6 +68,19 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/btnFinishNow"
         android:text="Next" />
+
+    <Button
+        android:id="@+id/btnReset"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="46dp"
+        android:text="Reset" />
     <!--<TabHost-->
         <!--android:id="@+id/tabhost"-->
         <!--android:layout_width="match_parent"-->

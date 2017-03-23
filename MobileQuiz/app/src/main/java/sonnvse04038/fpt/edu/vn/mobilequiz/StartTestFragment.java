@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import sonnvse04038.fpt.edu.vn.mobilequiz.Object.Test;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +24,8 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
     Button btnStart, btnCancel;
     TextView tvTestContent;
     int testID;
+    DBHelper myDB;
+    Test test;
 
     public StartTestFragment() {
         // Required empty public constructor
@@ -36,6 +40,11 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        testID = getActivity().getIntent().getIntExtra("testID", 0);
+        myDB = new DBHelper(getContext(), DBHelper.DB_NAME, null, DBHelper.DB_VERSION);
+
+        test = myDB.getTestByID(testID);
         return inflater.inflate(R.layout.fragment_start_test, container, false);
     }
 
@@ -46,8 +55,7 @@ public class StartTestFragment extends Fragment implements View.OnClickListener{
         btnCancel = (Button) view.findViewById(R.id.btnCancel);
 
         tvTestContent = (TextView) view.findViewById(R.id.tvTestContent);
-        testID = getActivity().getIntent().getIntExtra("testID", 0);
-        tvTestContent.setText("Now we test the Demo test " + testID);
+        tvTestContent.setText(test.getInfo());
 
         btnStart.setOnClickListener(this);
         btnCancel.setOnClickListener(this);

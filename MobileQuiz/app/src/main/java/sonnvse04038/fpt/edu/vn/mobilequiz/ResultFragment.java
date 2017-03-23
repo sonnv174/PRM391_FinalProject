@@ -1,11 +1,12 @@
 package sonnvse04038.fpt.edu.vn.mobilequiz;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +24,12 @@ public class ResultFragment extends android.support.v4.app.Fragment implements a
 
 
     android.widget.Button btnDone;
-    android.widget.TextView tvUserName, tvTestName, tvTimeStart, tvDuration, tvMark;
-    int testID, totalMark, maxMark;
+    android.widget.TextView tvUserName, tvTestName, tvTimeStart, tvTimeComplete, tvTestDuration, tvMark;
+    int testID, totalMark, maxMark, userID = 1;
     DBHelper myDB;
     Test test;
+    double mark;
+
 
     Calendar startTime;
 
@@ -54,12 +57,13 @@ public class ResultFragment extends android.support.v4.app.Fragment implements a
         tvUserName = (TextView) view.findViewById(R.id.tvUserName);
         tvTestName = (TextView) view.findViewById(R.id.tvTestName);
         tvTimeStart = (TextView) view.findViewById(R.id.tvTimeStart);
-        tvDuration = (TextView) view.findViewById(R.id.tvDuration);
+        tvTimeComplete = (TextView) view.findViewById(R.id.tvTimeComplete);
+        tvTestDuration = (TextView) view.findViewById(R.id.tvTestDuration);
         tvMark = (TextView) view.findViewById(R.id.tvMark);
 
-        tvUserName.setText("cai gi do");
+        tvUserName.setText("Isaac Newton");
         tvTestName.setText(test.gettName());
-        double mark = totalMark * 1.0 / maxMark * 10;
+        mark = totalMark * 1.0 / maxMark * 10;
         tvMark.setText(String.format("%.1f", mark));
 
 
@@ -69,7 +73,12 @@ public class ResultFragment extends android.support.v4.app.Fragment implements a
         long difference = Calendar.getInstance().getTimeInMillis() - startTime.getTimeInMillis();
         int sec = (int) (difference/ 1000 % 60);
         int min = (int) ((difference / 1000 / 60) % 60);
-        tvDuration.setText(min + " mins " + sec + " seconds");
+        tvTimeComplete.setText(min + " mins " + sec + " seconds");
+
+        int testDuration = test.getTime();
+        sec = (int) (testDuration % 60);
+        min = (int) ((testDuration / 60) % 60);
+        tvTestDuration.setText(min + " mins " + sec + " seconds");
     }
 
     @Override
@@ -77,6 +86,8 @@ public class ResultFragment extends android.support.v4.app.Fragment implements a
         int Gui_Id = view.getId();
         switch (Gui_Id) {
             case R.id.btnDone:
+
+                myDB.insertResult(userID, testID, tvTimeStart.getText().toString(), tvTimeComplete.getText().toString(), mark);
                 getActivity().finish();
                 Toast.makeText(getContext(), "Done", Toast.LENGTH_SHORT).show();
                 break;

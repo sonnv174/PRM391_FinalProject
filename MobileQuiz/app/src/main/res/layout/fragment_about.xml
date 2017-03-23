@@ -6,88 +6,94 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
         android:text="About"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="- Nguyen Van Son - SE04038 (Leader)"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView11"
         android:layout_alignLeft="@+id/textView11"
         android:layout_alignStart="@+id/textView11"
-        android:layout_marginTop="15dp" />
+        android:layout_below="@+id/textView11"
+        android:layout_marginTop="15dp"
+        android:text="- Nguyen Van Son - SE04038 (Leader)"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="- Hoang Anh Duc - SE02175"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView6"
         android:layout_alignLeft="@+id/textView6"
         android:layout_alignStart="@+id/textView6"
-        android:layout_marginTop="15dp" />
+        android:layout_below="@+id/textView6"
+        android:layout_marginTop="15dp"
+        android:text="- Hoang Anh Duc - SE02175"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="- Pham Tuan Dung - SE03655"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView7"
         android:layout_alignLeft="@+id/textView7"
         android:layout_alignStart="@+id/textView7"
-        android:layout_marginTop="14dp" />
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="14dp"
+        android:text="- Pham Tuan Dung - SE03655"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lecturer: Bui Ngoc Anh"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView8"
         android:layout_alignLeft="@+id/textView8"
         android:layout_alignStart="@+id/textView8"
-        android:layout_marginTop="11dp" />
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="11dp"
+        android:text="Lecturer: Bui Ngoc Anh"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Subject: PRM391_MobileQuiz"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView9"
         android:layout_alignLeft="@+id/textView9"
         android:layout_alignStart="@+id/textView9"
-        android:layout_marginTop="16dp" />
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="16dp"
+        android:text="Subject: PRM391_MobileQuiz_Spring_2017"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
         android:text="This app was designed by SDD team:"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_marginTop="12dp" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/tvInfo"
+        android:id="@+id/tvMatQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Drag and drop statement in A with statement in B to make right statement"
@@ -16,128 +16,130 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
-    <Button
-        android:id="@+id/btnReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"/>
-
     <TextView
         android:id="@+id/Acol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="A column"
-        android:layout_below="@+id/tvInfo"
-        android:layout_alignLeft="@+id/option_1"
-        android:layout_alignStart="@+id/option_1"/>
+        android:layout_marginLeft="136dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tvMatQuestion"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/Bcol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/Acol"
-        android:layout_centerHorizontal="true"
-        android:text="B column"/>
+        android:text="B column"
+        android:layout_above="@+id/choice_1"
+        android:layout_alignRight="@+id/tvMatQuestion"
+        android:layout_alignEnd="@+id/tvMatQuestion"
+        android:layout_marginRight="68dp"
+        android:layout_marginEnd="68dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/option_1"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:editable="false"
+        android:focusable="false"
+        android:layout_below="@+id/Acol"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/option_2"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/Acol"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/raw_boder"
-        android:text="1"/>
-
-    <TextView
-        android:id="@+id/option_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/option_1"
         android:layout_below="@+id/option_1"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:editable="false"
+        android:focusable="false" />
 
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/raw_boder"
-        android:text="2"/>
-
-    <TextView
+    <EditText
         android:id="@+id/option_3"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/option_2"
-        android:layout_alignStart="@+id/option_2"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/option_2"
-        android:background="@drawable/raw_boder"
-        android:text="3"/>
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:editable="false"
+        android:focusable="false"/>
 
-    <TextView
+    <EditText
         android:id="@+id/option_4"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-
-        android:layout_alignLeft="@+id/option_3"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/option_3"
-        android:background="@drawable/raw_boder"
-        android:text="4"/>
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:editable="false"
+        android:focusable="false"/>
 
-    <TextView
+    <EditText
         android:id="@+id/choice_1"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:editable="false"
+        android:focusable="false"
         android:layout_alignBaseline="@+id/option_1"
         android:layout_alignBottom="@+id/option_1"
-        android:layout_alignLeft="@+id/Bcol"
-        android:layout_alignStart="@+id/Bcol"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/raw_boder"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginEnd="57dp" />
 
-        android:text="5"/>
-
-    <TextView
+    <EditText
         android:id="@+id/choice_2"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/choice_1"
-        android:background="@drawable/raw_boder"
-        android:layout_below="@id/choice_1"
-        android:layout_marginBottom="10dp"
-        android:layout_alignLeft="@+id/Bcol"
-        android:layout_alignStart="@+id/Bcol"
-        android:layout_marginTop="10dp"
-        android:text="6"/>
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignBaseline="@+id/option_2"
+        android:layout_alignBottom="@+id/option_2"
+        android:layout_alignLeft="@+id/choice_1"
+        android:layout_alignStart="@+id/choice_1"
+        android:editable="false"
+        android:focusable="false"/>
 
-    <TextView
+    <EditText
         android:id="@+id/choice_3"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/choice_2"
+        android:layout_above="@+id/option_4"
         android:layout_alignLeft="@+id/choice_2"
         android:layout_alignStart="@+id/choice_2"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/raw_boder"
-        android:text="7"/>
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:editable="false"
+        android:focusable="false"/>
 
-    <TextView
+    <EditText
         android:id="@+id/choice_4"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/option_4"
-        android:layout_alignStart="@+id/choice_2"
         android:layout_alignLeft="@+id/choice_3"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/raw_boder"
-        android:text="8"/>
+        android:layout_alignStart="@+id/choice_3"
+        android:layout_alignTop="@+id/option_4"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:editable="false"
+        android:focusable="false"/>
 
 </RelativeLayout>

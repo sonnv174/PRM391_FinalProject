@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:text="Unknow"
+        android:text="Isaac Newton"
         android:textStyle="bold" />
 
     <TextView
@@ -51,21 +51,21 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:text="Duration:"
-        android:layout_below="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
         android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4" />
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="11dp"
+        android:text="Time complete:" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="Mark:"
-        android:layout_below="@+id/textView5"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/tvTimeStart"
@@ -79,13 +79,14 @@
         android:text="12:00" />
 
     <TextView
-        android:id="@+id/tvDuration"
+        android:id="@+id/tvTimeComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView12"
+        android:text="15 min"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
         android:layout_alignLeft="@+id/tvTimeStart"
-        android:layout_alignStart="@+id/tvTimeStart"
-        android:text="15 min" />
+        android:layout_alignStart="@+id/tvTimeStart" />
 
     <TextView
         android:id="@+id/tvMark"
@@ -96,8 +97,8 @@
         android:textStyle="bold"
         android:layout_alignBaseline="@+id/textView12"
         android:layout_alignBottom="@+id/textView12"
-        android:layout_alignLeft="@+id/tvDuration"
-        android:layout_alignStart="@+id/tvDuration" />
+        android:layout_alignLeft="@+id/tvTimeComplete"
+        android:layout_alignStart="@+id/tvTimeComplete" />
 
     <TextView
         android:id="@+id/tvTestName"
@@ -107,5 +108,24 @@
         android:text="Test Demo1"
         android:layout_below="@+id/tvUserName"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="11dp"
+        android:text="Test's duration:" />
+
+    <TextView
+        android:id="@+id/tvTestDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTimeComplete"
+        android:layout_alignStart="@+id/tvTimeComplete"
+        android:layout_alignTop="@+id/textView2"
+        android:text="10min" />
 
 </RelativeLayout>

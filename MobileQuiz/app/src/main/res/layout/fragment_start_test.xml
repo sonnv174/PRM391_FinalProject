@@ -11,27 +11,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/tvTestContent"
-        android:layout_toStartOf="@+id/tvTestContent" />
+        android:layout_marginBottom="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="320dp"
+        android:layout_marginStart="320dp" />
 
     <TextView
         android:id="@+id/tvTestContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
         android:layout_marginTop="43dp"
         android:text="Start screen here"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
         android:layout_alignBaseline="@+id/btnStart"
         android:layout_alignBottom="@+id/btnStart"
-        android:layout_toRightOf="@+id/tvTestContent"
-        android:layout_toEndOf="@+id/tvTestContent" />
+        android:layout_toRightOf="@+id/btnStart"
+        android:layout_toEndOf="@+id/btnStart" />
 
 </RelativeLayout>
