@@ -1,12 +1,17 @@
 package sonnvse04038.fpt.edu.vn.mobilequiz;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,11 +124,15 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
         switch (GUI_id) {
             case R.id.fabAdd:
                 try {
-                    Intent fileIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                    fileIntent.setType("file/*"); // intent type to filter application based on your requirement
-                    startActivityForResult(fileIntent, REQUEST_FILE_CODE);
-//                Toast.makeText(getContext(), "Add button is clicked!", Toast.LENGTH_SHORT).show();
-                }catch(Exception e) {
+
+                    Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+
+                    // Ask specifically for something that can be opened:
+                    chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
+                    chooseFile.setType("*/*");
+                    startActivityForResult(Intent.createChooser(chooseFile, "Choose a file"), REQUEST_FILE_CODE
+                    );
+                } catch (Exception e) {
 
                 }
                 break;
@@ -136,28 +145,44 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_FILE_CODE) {
+            BufferedReader reader = null;
             try {
-                String FilePath = data.getData().getPath();
-                if(FilePath == null) throw new Exception();
-                file = new File(FilePath);
-                FileInputStream fis = new FileInputStream(file);
-                InputStream is = new BufferedInputStream(fis);
-                jsonString = convertStreamToString(is);
+                    if (data != null) {
+                        Uri content_describer = data.getData();
+                        // open the user-picked file for reading:
+                        InputStream in = getContext().getContentResolver().openInputStream(content_describer);
+                        // now read the content:
+                        reader = new BufferedReader(new InputStreamReader(in));
+                        String line;
+                        StringBuilder builder = new StringBuilder();
+                        while ((line = reader.readLine()) != null) {
+                            builder.append(line);
+                        }
+                    // Do something with the content in
+                    jsonString = builder.toString();
+                    addDataByJSON();
 
-                addDataByJSON();
-
-                HomeFlagment fragment = new HomeFlagment();
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
+                    HomeFlagment fragment = new HomeFlagment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                    fragmentTransaction.commit();
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            //    Toast.makeText(getContext(), jsonString, Toast.LENGTH_SHORT).show();
         }
     }
+
     public void addDataByJSON() {
         try {
             jsonRoot = new JSONObject(jsonString);
@@ -220,6 +245,7 @@ public class HomeFlagment extends Fragment implements View.OnClickListener {
             e.printStackTrace();
         }
     }
+
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();

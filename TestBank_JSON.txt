@@ -1,0 +1,131 @@
+﻿{
+	"test": {
+        	"tName": "Online 1",
+        	"info": "This test is designed to give you an indication of your language level. However it is only a provisional test. All FPT students are asked to sit a placement test on their first day at school which will provide a more accurate diagnosis of their language level.\nThe test is divided into 3 sections: \n1.	A filling blank test (2 questions)\n2.	A multiple choice test (5 questions)\n3.	A matching test (5 questions)",
+		"time": "900",
+		"tStatus": "1"
+	},
+    "multiple":[
+        {
+                "tID": "1",
+                "mulQuestion": "Question 1: Bye!",
+                "mulStatus": "1",
+                "mulRighAnswer" : "D. See you later.",
+		"mulAnswer1" : "A. See you lately.",
+		"mulAnswer2" : "B. Thank you.",
+		"mulAnswer3" : "C. Meet you again.",
+		"mulAnswer4" : "D. See you later."
+        },
+        {
+                "tID": "1",
+                "mulQuestion": "Question 2: I’ve passed my driving test.",
+                "mulStatus": "1",
+                "mulRighAnswer" : "A. Congratulations!",
+		"mulAnswer1" : "A. Congratulations!",
+		"mulAnswer2" : "B. That’s a good idea.",
+		"mulAnswer3" : "C. It’s nice of you to say so.",
+		"mulAnswer4" : "D. Do you?"
+        },
+	{
+                "tID": "1",
+                "mulQuestion": "Question 3: Would you like to have dinner with me?",
+                "mulStatus": "1",
+                "mulRighAnswer" : "A. Yes, I’d love to.",
+		"mulAnswer1" : "A. Yes, I’d love to.",
+		"mulAnswer2" : "B. Yes, so do I.",
+		"mulAnswer3" : "C. I’m very happy.",
+		"mulAnswer4" : "D. Yes, it is."
+        },
+	{
+                "tID": "1",
+                "mulQuestion": "Question 4: How do you do?",
+                "mulStatus": "1",
+                "mulRighAnswer" : "C. I’m well. Thank you.",
+		"mulAnswer1" : "A. How do you do?",
+		"mulAnswer2" : "B. Not too bad.",
+		"mulAnswer3" : "C. I’m well. Thank you.",
+		"mulAnswer4" : "D. Yeah, OK."
+        },
+	{
+                "tID": "1",
+                "mulQuestion": "Question 5: I love pop music.",
+                "mulStatus": "1",
+                "mulRighAnswer" : "D. So do I.",
+		"mulAnswer1" : "A. No, I won't.",
+		"mulAnswer2" : "B. Neither do I.",
+		"mulAnswer3" : "C. Yes, I like it.",
+		"mulAnswer4" : "D. So do I."
+        }
+    ],
+	
+    "matching": [
+        {
+                "tID": "1",
+                "matQuestion": "Matching 1",
+                "matStatus": "1",
+		"matAnswer1" : "give [someone]a ride|(phrasal v.)to drive someone to a place in your car",
+		"matAnswer2" : "keep an eye on [something or someone]|(phrasal v.)watch something for a short time so it doesn't get stolen / watch a person (usually a child) for a short time to make sure they don't get into trouble or get hurt",
+		"matAnswer3" : "lend [someone] [something]|(phrasal v.)let someone borrow something of yours",
+		"matAnswer4" : "fill in for [someone]|(phrasal v.)be a substitute for someone (for a short time)"
+        },
+        {
+                "tID": "1",
+                "matQuestion": "Matching 2",
+                "matStatus": "1",
+		"matAnswer1" : "pick up [someone or something]|(phrasal v.)to go somewhere in order to get and bring back (someone or something)",
+		"matAnswer2" : "dry clean [a suit]|(phrasal v.)clean clothes with special chemicals instead of water",
+		"matAnswer3" : "repair [shoes]|(phrasal v.)to fix something that is broken or damaged",
+		"matAnswer4" : "frame [a picture]|(phrasal v.)to put something (photo, poster, diploma...) in a frame that can hang on the wall"
+        },
+	{
+                "tID": "1",
+                "matQuestion": "Matching 3",
+                "matStatus": "1",
+		"matAnswer1" : "deliver [a package]|(phrasal v.)to bring something to a designated place / person",
+		"matAnswer2" : "print [a sign]|(phrasal v.)to use a machine to produce a document / photo on paper",
+		"matAnswer3" : "copy [a report]|(phrasal v.)use a photocopier to produce many copies of a document",
+		"matAnswer4" : "reliable|(adj.)able to be trusted to do or provide what is needed : able to be relied on"
+        },
+	{
+                "tID": "1",
+                "matQuestion": "Matching 4",
+                "matStatus": "1",
+		"matAnswer1" : "reasonable|(adj.)describes something that is good value for the money; the price is good considering the quality of the product / service",
+		"matAnswer2" : "helpful|(adj.)willing to help / provide assistance to other people",
+		"matAnswer3" : "professional|(adj.)having or showing the skill, good judgment, and polite behavior that is expected from a person who is trained to do a job well",
+		"matAnswer4" : "repair shop|(n.)a place where things that are broken / damaged are put back into good condition"
+        },
+	{
+                "tID": "1",
+                "matQuestion": "Matching 5",
+                "matStatus": "1",
+		"matAnswer1" : "doctor's appointment|(n.)a scheduled time where a patient meets with a doctor to discuss health issues in private",
+		"matAnswer2" : "make a list of attendees|(phrasal v.)write down the names of people who will come to an event you are planning",
+		"matAnswer3" : "pick a date, time and place|(phrasal v.)choose the day, time and location for an event you are planning",
+		"matAnswer4" : "make a budget|(phrasal v.)write down a plan to decide the amount of money that can be spent and how it will be spent when you are planning an event"
+        }
+    ],
+	
+    "filling": [
+        {
+                "tID": "1",
+                "fQuestion": "Filling Blank 1:\nWell I ___①___ could it be\nWhen I was ___②___  'bout you baby\nYou were dreaming of me\nCall me ___③___ , call me ___④___\nTo still be suffering is ___⑤___ after all of this time",
+                "fStatus": "1",
+                "fAnswer1" : "wonder",
+		"fAnswer2" : "dreaming",
+		"fAnswer3" : "crazy",
+		"fAnswer4" : "blind",
+		"fAnswer5" : "stupid"
+        },
+        {
+                "tID": "1",
+                "fQuestion": "If the hero never ___①___ to you\nIf you need someone you're ___②___ blue\nIf you ___③___ for love and you're ___④___\nIf you call your friends nobody's ___⑤___",
+                "fStatus": "1",
+                "fAnswer1" : "comes",
+		"fAnswer2" : "feeling",
+		"fAnswer3" : "wait",
+		"fAnswer4" : "alone",
+		"fAnswer5" : "home"
+		}
+    ]
+}
